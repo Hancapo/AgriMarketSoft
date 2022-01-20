@@ -66,9 +66,9 @@ namespace Agri.Connect
             return dt;
         }
 
-        public object? RunSqlExecuteScalar(string sqlcommand)
+        public object RunSqlExecuteScalar(string sqlcommand)
         {
-            object? newobj = null;
+            object newobj = null;
 
             if (CheckDatabase())
             {

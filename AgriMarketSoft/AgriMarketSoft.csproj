@@ -16,4 +16,10 @@
     <PackageReference Include="MaterialDesignThemes" Version="4.4.0-ci57" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
