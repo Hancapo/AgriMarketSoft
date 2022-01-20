@@ -13,8 +13,8 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{x:Null}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-    Title="MainWindow" Height="770" Width="1280" WindowStyle="None">
-    
+    Title="MainWindow" Height="770" Width="1280" WindowStyle="None" WindowStartupLocation="CenterScreen" Foreground="{x:Null}" AllowsTransparency="True" ResizeMode="NoResize">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -28,7 +28,7 @@
             </StackPanel>
         </StackPanel>
         <Frame x:Name="fMain" Grid.Row="1">
-            
+
         </Frame>
     </Grid>
 </Window>
