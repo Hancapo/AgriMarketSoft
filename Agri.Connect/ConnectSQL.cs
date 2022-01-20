@@ -10,26 +10,26 @@ namespace Agri.Connect
 {
     public class ConnectSQL
     {
-        static public (string, string, string) LoadCredentials()
+        static private (string, bool, string) LoadCredentials()
         {
             string filepath = "config.ini";
-            string _user = File.ReadAllLines(filepath)[0].Split('=')[1].Trim();
-            string _pwd = File.ReadAllLines(filepath)[1].Split('=')[1].Trim();
-            string _db = File.ReadAllLines(filepath)[2].Split('=')[1].Trim();
+            string _server = File.ReadAllLines(filepath)[0].Split('=')[1].Trim();
+            bool _TC = bool.Parse(File.ReadAllLines(filepath)[1].Split('=')[1].Trim());
+            string _db = File.ReadAllLines(filepath)[2].Split('=')[1].Trim();   
 
 
-            return (_user, _pwd, _db);
+            return (_server, _TC, _db);
         }
 
-        static string user = LoadCredentials().Item1;
-        static string pwd = LoadCredentials().Item2;
-        static string db = LoadCredentials().Item3;
+        private static string Server_ = LoadCredentials().Item1;
+        private static bool TC_ = LoadCredentials().Item2;
+        private static string DB_ = LoadCredentials().Item3;
 
-        static SqlConnection sqlConnection = new("User Id=" + user + ";Password=" + pwd + ";Data Source=" + db + ";");
-        static SqlCommand sqlCommand = sqlConnection.CreateCommand();
+        static private SqlConnection sqlConnection = new($"Server={Server_};Database={DB_};Trusted_Connection={TC_.ToString()}");
+        static private SqlCommand sqlCommand = sqlConnection.CreateCommand();
 
-        public SqlConnection SqlConnection { get => sqlConnection; set => sqlConnection = value; }
-        public SqlCommand SqlCommand { get => sqlCommand; set => sqlCommand = value; }
+        private SqlConnection SqlConnection { get => sqlConnection; set => sqlConnection = value; }
+        private SqlCommand SqlCommand { get => sqlCommand; set => sqlCommand = value; }
 
 
         public bool CheckDatabase()

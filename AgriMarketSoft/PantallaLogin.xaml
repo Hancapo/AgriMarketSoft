@@ -36,7 +36,7 @@
                 <Label Content="¡Bienvenido una vez más!" HorizontalAlignment="Center" FontStyle="Normal" Margin="0,20,0,0" FontFamily="Montserrat Bold" Foreground="#DDC8C8C8" FontWeight="Normal"/>
                 <Label Content="Ingresa en tu cuenta" HorizontalAlignment="Center" FontFamily="Montserrat Light" FontWeight="Normal" FontSize="20"/>
                 <StackPanel Width="300">
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" materialDesign:HintAssist.Hint="Usuario" x:Name="tbUsuario"  Margin="15" Cursor="IBeam" KeyDown="tbUsuario_KeyDown" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo"  Margin="15" Cursor="IBeam" KeyDown="tbCorreo_KeyDown" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
                     <PasswordBox FontSize="15" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="pbPassword" Margin="15" PasswordChar="•" KeyDown="pbPassword_KeyDown"  Foreground="{StaticResource MaterialDesignDarkForeground}"/>
                     <Button x:Name="BtnIngresar" Content="Iniciar sesión" Foreground="{StaticResource MaterialDesignDarkForeground}" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Margin="25" FontFamily="{StaticResource MaterialDesignFont}" FontStyle="Normal" FontWeight="Normal" Click="BtnIngresar_Click" Cursor="Hand"/>
                 </StackPanel>

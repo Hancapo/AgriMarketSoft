@@ -35,12 +35,12 @@ namespace AgriMarketSoft
 
         }
 
-        private void tbUsuario_KeyDown(object sender, KeyEventArgs e)
+        private void pbPassword_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
 
-        private void pbPassword_KeyDown(object sender, KeyEventArgs e)
+        private void tbCorreo_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
