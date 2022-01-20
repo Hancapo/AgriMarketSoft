@@ -11,53 +11,53 @@ namespace Agri.Business
     {
         private ConnectSQL ctql = new();
 
-        public int LoginProcess(string usuario, string contrasena)
+        public (int,int) LoginProcess(string correo, string contrasena)
         {
-            string AccExistString = $"SELECT IDUSUARIO FROM USUARIO WHERE NOMBREUSUARIO = '{usuario}'";
-            string AccExistsIsCustomer = $"SELECT IDUSUARIO FROM USUARIO WHERE NOMBREUSUARIO = '{usuario}' AND tipo_usuario_idtipo_usuario = 2";
-            string AccExistsIsAdmin = $"SELECT IDUSUARIO FROM USUARIO WHERE NOMBREUSUARIO = '{usuario}' AND tipo_usuario_idtipo_usuario = 1";
-            string AccExistWrongPwd = $"SELECT IDUSUARIO FROM USUARIO WHERE NOMBREUSUARIO = '{usuario}' AND password = '{contrasena}'";
+            string AccExistsString = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}'";
+            string AccExistsIsCustomer = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND idtipo = 1";
+            string AccExistsIsProveedor = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND idtipo = 2";
+            string AccExistWrongPwd = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND password = '{contrasena}'";
 
 
             //0 -> La cuenta no existe.
-            //1 -> La cuenta sí existe.
-            //2 -> La cuenta existe pero la contraseña es incorrecta.
-            //3 -> La cuenta existe pero corresponde a una cuenta de cliente.
-            //4 -> La cuenta existe y corresponde a una cuenta de administrador.
-            //5 -> La cuenta es de administrador y la contraseña es correcta.
+            //1 -> La cuenta existe.
+            //3 -> La contraseña es incorrecta.
+            
 
-            int LoginType;
+            //1 -> Cliente
+            //2 -> Proveedor
 
-            if (ctql.RunSqlExecuteScalar(AccExistString) == null)
+
+            int LoginType = -1;
+            int UserType = -1;
+
+
+            if (ctql.RunSqlExecuteScalar(AccExistsString) != null)
             {
-                LoginType = 0;
+                LoginType = 1;
+
+                if (ctql.RunSqlExecuteScalar(AccExistsIsCustomer) != null)
+                {
+                    UserType = 1;
+
+                    if (AccExistWrongPwd != null)
+                    {
+
+                    }
+                }
+
+                if (ctql.RunSqlExecuteScalar(AccExistsIsProveedor) != null)
+                {
+                    UserType = 2;
+
+                }
             }
             else
             {
                 LoginType = 1;
-                if (ctql.RunSqlExecuteScalar(AccExistsIsCustomer) != null)
-                {
-                    LoginType = 3;
-                }
-                else
-                {
-                    if (ctql.RunSqlExecuteScalar(AccExistsIsAdmin) != null)
-                    {
-                        LoginType = 4;
-
-                        if (ctql.RunSqlExecuteScalar(AccExistWrongPwd) != null)
-                        {
-                            LoginType = 5;
-                        }
-                        else
-                        {
-                            LoginType = 2;
-                        }
-                    }
-                }
             }
 
-            return LoginType;
+            
         }
     }
 }
