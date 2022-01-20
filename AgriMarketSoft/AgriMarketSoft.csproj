@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>True</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CefSharp.Common.NETCore" Version="97.1.12" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="97.1.12" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.5-ci57" />
+    <PackageReference Include="MaterialDesignExtensions" Version="4.0.0-a02" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.4.0-ci57" />
+  </ItemGroup>
+
+</Project>

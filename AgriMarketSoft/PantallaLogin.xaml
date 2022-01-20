@@ -1,0 +1,48 @@
+﻿<Page x:Class="AgriMarketSoft.PantallaLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgriMarketSoft"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="PantallaLogin">
+
+    <Grid Background="{StaticResource MaterialDesignDarkBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center">
+            <Label Content="AgriMarket" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" Margin="0,0,0,0" FontFamily="{StaticResource MaterialDesignFont}"/>
+            <Label Content="{materialDesign:PackIcon Kind=Marketplace, Size=30}" VerticalAlignment="Center" Margin="3,0,0,0" Foreground="#DD1B1B1B"/>
+        </StackPanel>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="#FF1F1F1F" Grid.Column="1" Grid.Row="1" Margin="20" CornerRadius="10" Height="350">
+            <StackPanel Orientation="Vertical">
+                <Label Content="¡Bienvenido una vez más!" HorizontalAlignment="Center" FontStyle="Normal" Margin="0,20,0,0" FontFamily="Montserrat Bold" Foreground="#DDC8C8C8" FontWeight="Normal"/>
+                <Label Content="Ingresa en tu cuenta" HorizontalAlignment="Center" FontFamily="Montserrat Light" FontWeight="Normal" FontSize="20"/>
+                <StackPanel Width="300">
+                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" materialDesign:HintAssist.Hint="Usuario" x:Name="tbUsuario"  Margin="15" Cursor="IBeam" KeyDown="tbUsuario_KeyDown" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                    <PasswordBox FontSize="15" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="pbPassword" Margin="15" PasswordChar="•" KeyDown="pbPassword_KeyDown"  Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                    <Button x:Name="BtnIngresar" Content="Iniciar sesión" Foreground="{StaticResource MaterialDesignDarkForeground}" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Margin="25" FontFamily="{StaticResource MaterialDesignFont}" FontStyle="Normal" FontWeight="Normal" Click="BtnIngresar_Click" Cursor="Hand"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <Button Content="Probar conexión con BD" Grid.Column="2" Foreground="{StaticResource MaterialDesignDarkForeground}" Grid.Row="2" Margin="20" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="BtnTest" Click="BtnTest_Click"/>
+    </Grid>
+</Page>

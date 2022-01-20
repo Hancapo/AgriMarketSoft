@@ -1,0 +1,34 @@
+﻿<Window x:Class="AgriMarketSoft.VentanaPrincipal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgriMarketSoft"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{x:Null}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+    Title="MainWindow" Height="770" Width="1280" WindowStyle="None">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="#FF252525" x:Name="spTab" MouseDown="spTab_MouseDown">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="btnMinimize" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=WindowMinimize,Size=30}" Click="btnMinimize_Click"/>
+                <Button x:Name="btnQuit" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=CloseCircle,Size=30}" Click="btnQuit_Click"/>
+
+            </StackPanel>
+        </StackPanel>
+        <Frame x:Name="fMain" Grid.Row="1">
+            
+        </Frame>
+    </Grid>
+</Window>
