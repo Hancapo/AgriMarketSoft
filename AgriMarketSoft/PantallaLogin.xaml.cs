@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agri.Connect;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class PantallaLogin : Page
     {
+
+        ConnectSQL csql = new();
         public PantallaLogin()
         {
             InitializeComponent();
@@ -32,7 +35,15 @@ namespace AgriMarketSoft
 
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
+            if (csql.CheckDatabase())
+            {
+                MessageBox.Show("La conexión ha sido exitosa.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido conectar con la base de datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
+            }
         }
 
         private void pbPassword_KeyDown(object sender, KeyEventArgs e)

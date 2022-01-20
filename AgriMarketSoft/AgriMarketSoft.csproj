@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Agri.Connect\Agri.Connect.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="config.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

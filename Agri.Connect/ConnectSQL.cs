@@ -25,7 +25,7 @@ namespace Agri.Connect
         private static bool TC_ = LoadCredentials().Item2;
         private static string DB_ = LoadCredentials().Item3;
 
-        static private SqlConnection sqlConnection = new($"Server={Server_};Database={DB_};Trusted_Connection={TC_.ToString()}");
+        static private SqlConnection sqlConnection = new($"Data Source={Server_};Initial Catalog={DB_};Integrated Security={TC_.ToString().ToLowerInvariant()}");
         static private SqlCommand sqlCommand = sqlConnection.CreateCommand();
 
         private SqlConnection SqlConnection { get => sqlConnection; set => sqlConnection = value; }
