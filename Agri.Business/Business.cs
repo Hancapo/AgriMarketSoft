@@ -22,6 +22,7 @@ namespace Agri.Business
             //0 -> La cuenta no existe.
             //1 -> La cuenta existe.
             //3 -> La contraseña es incorrecta.
+            //4 -> Ingreso de sesión exitoso.
             
 
             //1 -> Cliente
@@ -42,6 +43,11 @@ namespace Agri.Business
 
                     if (AccExistWrongPwd != null)
                     {
+                        LoginType = 4;
+                    }
+                    else
+                    {
+                        LoginType = 3;
 
                     }
                 }
@@ -50,14 +56,24 @@ namespace Agri.Business
                 {
                     UserType = 2;
 
+                    if (AccExistWrongPwd != null)
+                    {
+                        LoginType = 4;
+
+                    }
+                    else
+                    {
+                        LoginType = 3;
+                    }
+
                 }
             }
             else
             {
-                LoginType = 1;
+                LoginType = 0;
             }
 
-            
+            return (LoginType, UserType);
         }
     }
 }
