@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Agri.Business\Agri.Business.csproj" />
     <ProjectReference Include="..\Agri.Connect\Agri.Connect.csproj" />
   </ItemGroup>
 

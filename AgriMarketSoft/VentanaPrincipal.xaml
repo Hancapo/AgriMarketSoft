@@ -27,7 +27,7 @@
 
             </StackPanel>
         </StackPanel>
-        <Frame x:Name="fMain" Grid.Row="1">
+        <Frame x:Name="fMain" Grid.Row="1" NavigationUIVisibility="Hidden">
 
         </Frame>
     </Grid>

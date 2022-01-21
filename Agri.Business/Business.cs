@@ -16,13 +16,13 @@ namespace Agri.Business
             string AccExistsString = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}'";
             string AccExistsIsCustomer = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND idtipo = 1";
             string AccExistsIsProveedor = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND idtipo = 2";
-            string AccExistWrongPwd = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND password = '{contrasena}'";
+            string AccExistWrongPwd = $"SELECT IDUSUARIO FROM USUARIO WHERE CORREO = '{correo}' AND contrasena = '{contrasena}'";
 
 
             //0 -> La cuenta no existe.
             //1 -> La cuenta existe.
-            //3 -> La contraseña es incorrecta.
-            //4 -> Ingreso de sesión exitoso.
+            //2 -> La contraseña es incorrecta.
+            //3 -> Ingreso de sesión exitoso.
             
 
             //1 -> Cliente
@@ -41,29 +41,29 @@ namespace Agri.Business
                 {
                     UserType = 1;
 
-                    if (AccExistWrongPwd != null)
+                    if (ctql.RunSqlExecuteScalar(AccExistWrongPwd) != null)
                     {
-                        LoginType = 4;
+                        LoginType = 3;
                     }
                     else
                     {
-                        LoginType = 3;
+                        LoginType = 2;
 
                     }
                 }
 
-                if (ctql.RunSqlExecuteScalar(AccExistsIsProveedor) != null)
+                else if (ctql.RunSqlExecuteScalar(AccExistsIsProveedor) != null)
                 {
                     UserType = 2;
 
-                    if (AccExistWrongPwd != null)
+                    if (ctql.RunSqlExecuteScalar(AccExistWrongPwd) != null)
                     {
-                        LoginType = 4;
+                        LoginType = 3;
 
                     }
                     else
                     {
-                        LoginType = 3;
+                        LoginType = 2;
                     }
 
                 }
