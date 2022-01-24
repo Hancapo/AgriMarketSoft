@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agri.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class TiendaView : Page
     {
+        Business b = new();
         int userType = -1;
         public TiendaView(int UserType)
         {
@@ -28,15 +30,16 @@ namespace AgriMarketSoft
             ModoUsuario();
         }
 
+        
         private void ModoUsuario()
         {
             switch (userType)
             {
                 case 1:
-                    lbTienda.Content = "Tienda: Cliente";
+                    TiendaPageFrame.Navigate(new TiendaList());
                     break;
                 case 2:
-                    lbTienda.Content = "Tienda: Proveedor";
+                    TiendaPageFrame.Navigate(new TiendaList());
                     break;
                 default:
                     break;

@@ -28,7 +28,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center">
-            <Label Content="AgriMarket" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" Margin="0,0,0,0" FontFamily="{StaticResource MaterialDesignFont}"/>
+            <Label Content="Agri-Market" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" Margin="0,0,0,0" FontFamily="{StaticResource MaterialDesignFont}"/>
             <Label Content="{materialDesign:PackIcon Kind=Marketplace, Size=30}" VerticalAlignment="Center" Margin="3,0,0,0" Foreground="#DD1B1B1B"/>
         </StackPanel>
         <Border BorderBrush="Gray" BorderThickness="1" Background="#FF1F1F1F" Grid.Column="1" Grid.Row="1" Margin="20" CornerRadius="10" Height="350">

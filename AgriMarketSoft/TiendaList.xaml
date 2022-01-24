@@ -1,0 +1,158 @@
+﻿<Page x:Class="AgriMarketSoft.TiendaList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgriMarketSoft"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      mc:Ignorable="d" 
+      d:DesignHeight="654.5454545454545454" d:DesignWidth="1280"
+      Title="TiendaList">
+
+    <Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel>
+                    <Expander Foreground="{StaticResource MaterialDesignDarkForeground}">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Label Content="Categoría" FontSize="16" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                                <Label Content="{materialDesign:PackIcon Kind=Category}" Margin="0,1,0,0"/>
+                            </StackPanel>
+                        </Expander.Header>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button x:Name="btnSelectAllCategory" Width="100" Margin="10" Style="{StaticResource MaterialDesignOutlinedButton}" FontSize="10" Height="20" Content="Selec. Todo" Click="btnSelectAllCategory_Click"/>
+                                <Button Visibility="Hidden" x:Name="btnDeselectAllCategory" Width="100" Style="{StaticResource MaterialDesignOutlinedButton}" FontSize="10" Height="20" Content="Deselec. Todo" Click="btnDeselectAllCategory_Click"/>
+
+                            </StackPanel>
+                            <ListView d:ItemsSource="{d:SampleData ItemCount=10}" Margin="10" x:Name="lvCategorias" HorizontalAlignment="Left" SelectionMode="Single">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Content="{Binding NombreCategoria}" x:Name="cbSelectCategory" IsChecked="{Binding Seleccionado}" Unchecked="cbSelectCategory_Unchecked" Checked="cbSelectCategory_Checked"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Foreground="{StaticResource MaterialDesignDarkForeground}" FontSize="18">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Label Content="Proveedores" FontSize="16" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                                <Label Content="{materialDesign:PackIcon Kind=PackageVariant}" Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Expander.Header>
+
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button x:Name="btnSelectAllProviders" Width="100" Margin="10" Style="{StaticResource MaterialDesignOutlinedButton}" FontSize="10" Height="20" Content="Selec. Todo" Click="btnSelectAllProviders_Click"/>
+                                <Button  Visibility="Hidden" x:Name="btnDeselectAllProviders" Width="100" Style="{StaticResource MaterialDesignOutlinedButton}" FontSize="10" Height="20" Content="Deselec. Todo" Click="btnDeselectAllProviders_Click"/>
+
+                            </StackPanel>
+                            <ListView d:ItemsSource="{d:SampleData ItemCount=10}" Margin="20" x:Name="lvProveedores" HorizontalAlignment="Left" SelectionMode="Single">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Content="{Binding Nombre}" x:Name="cbSelectProviders" IsChecked="{Binding Seleccionado}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Foreground="{StaticResource MaterialDesignDarkForeground}">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Label Content="Región" FontSize="16" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                                <Label Content="{materialDesign:PackIcon Kind=ImageFilterHdr}" Margin="0,1,0,0"/>
+                            </StackPanel>
+                        </Expander.Header>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button x:Name="btnSelectAllRegions" Width="100" Margin="10" Style="{StaticResource MaterialDesignOutlinedButton}" FontSize="10" Height="20" Content="Selec. Todo" Click="btnSelectAllRegions_Click"/>
+                                <Button  Visibility="Hidden" x:Name="btnDeselectAllRegions" Width="100" Style="{StaticResource MaterialDesignOutlinedButton}" FontSize="10" Height="20" Content="Deselec. Todo" Click="btnDeselectAllRegions_Click"/>
+
+                            </StackPanel>
+                            <ListView d:ItemsSource="{d:SampleData ItemCount=10}" Margin="20" x:Name="lvRegiones" HorizontalAlignment="Left" SelectionMode="Single">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Content="{Binding NombreRegion}" x:Name="cbSelectRegion" IsChecked="{Binding Seleccionado}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Foreground="{StaticResource MaterialDesignDarkForeground}">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Label Content="Precio" FontSize="16" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                                <Label Content="{materialDesign:PackIcon Kind=CurrencyUsd}" Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Expander.Header>
+                        <StackPanel>
+                            <ListView d:ItemsSource="{d:SampleData ItemCount=10}" Margin="20" x:Name="lvPrecios" HorizontalAlignment="Left">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+            <Grid Grid.Column="1" Background="#FF2B2B2B">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="123*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Background="{DynamicResource MaterialDesignDarkSeparatorBackground}" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="LeftToRight">
+                    <ComboBox SelectedIndex="0" x:Name="cbFiltros" Width="200" FlowDirection="LeftToRight" VerticalContentAlignment="Top" IsEditable="False" Margin="5" SelectionChanged="cbFiltros_SelectionChanged"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label Content="{materialDesign:PackIcon Kind=Search}" Margin="5"/>
+                        <TextBox Width="300" Margin="5" />
+                    </StackPanel>
+                    
+                </StackPanel>
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="20">
+                    <ListBox x:Name="lBoxProductos" d:ItemsSource="{d:SampleData ItemCount=10}" HorizontalAlignment="Center" Height="578">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <materialDesign:Card Width="250" Height="250">
+                                    <StackPanel>
+                                        <Image x:Name="imgBox" Width="150" Height="150" Stretch="Fill" Margin="5" Source="{Binding Imagen}"/>
+                                        <Label Margin="20,0,0,0" Content="{Binding IdProducto}" ContentStringFormat="ID: {0}" FontSize="8" FontWeight="Light"/>
+                                        <Label Margin="20,0,0,0" Content="{Binding NombreProducto}" FontSize="10" FontWeight="Bold"/>
+                                        <Label Margin="20,0,0,0" Content="{Binding Precio, StringFormat=C}" ContentStringFormat="${0}" FontWeight="Bold"/>
+                                        <Label Margin="20,0,0,0" Content="{Binding PrecioSinIva, StringFormat=C}" ContentStringFormat="Sin IVA ${0}" FontSize="9"/>
+
+
+                                    </StackPanel>
+                                </materialDesign:Card>
+                                
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

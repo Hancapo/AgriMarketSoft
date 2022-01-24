@@ -1,9 +1,13 @@
 ﻿using Agri.Connect;
+using Agri.Core;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Region = Agri.Core.Region;
 
 namespace Agri.Business
 {
@@ -75,5 +79,74 @@ namespace Agri.Business
 
             return (LoginType, UserType);
         }
+
+        public List<Categoria> GetCategoriaList()
+        {
+
+            List<Categoria> listaCategoria = new();
+
+            string sqlcommand = "select * from categoria";
+
+
+            foreach (DataRow dr in ctql.SqltoDataTable(sqlcommand).Rows)
+            {
+                Categoria categoria = new()
+                {
+                    IdCategoria = Convert.ToInt32(dr["idcategoria"]),
+                    NombreCategoria = dr["nombre"].ToString()
+                };
+                listaCategoria.Add(categoria);
+            }
+
+            return listaCategoria;
+        }
+
+        public List<Proveedor> GetProveedoresList()
+        {
+            List<Proveedor> proveedores = new();
+
+            string sqlcommand = "select * from proveedor";
+
+            foreach (DataRow dr in ctql.SqltoDataTable(sqlcommand).Rows)
+            {
+                Proveedor proveedor = new()
+                {
+                    RutProveedor = dr["rutproveedor"].ToString(),
+                    Nombre = dr["nombreproveedor"].ToString(),
+                    Contacto = dr["contacto"].ToString(),
+                    Latitud = Convert.ToSingle(dr["latitud"]),
+                    Longitud = Convert.ToSingle(dr["longitud"])
+                };
+
+                proveedores.Add(proveedor);
+            }
+
+            return proveedores;
+
+        }
+
+        public List<Region> GetRegionesList()
+        {
+            List<Region> listaRegion = new();
+
+            string sqlcommand = "select * from region";
+
+
+            foreach (DataRow dr in ctql.SqltoDataTable(sqlcommand).Rows)
+            {
+                Region region = new()
+                {
+                    IdRegion = Convert.ToInt32(dr["idregion"]),
+                    NombreRegion = dr["nombreregion"].ToString()
+                };
+                listaRegion.Add(region);
+            }
+
+            return listaRegion;
+
+        }
+
+        
     }
 }
+

@@ -17,6 +17,19 @@
       Title="TiendaView">
 
     <Grid>
-        <Label x:Name="lbTienda" FontSize="100" Margin="50" HorizontalAlignment="Center"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="AgriMarket MarketPlace" Margin="10" FontFamily="{StaticResource MaterialDesignFont}" FontSize="20"/>
+            <Label Content="Cliente" Margin="900,0,0,0" Height="20" HorizontalAlignment="Right"/>
+            <Label Content="{materialDesign:PackIcon Kind=User}" Height="20" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <Frame x:Name="TiendaPageFrame" Grid.Row="1">
+            
+        </Frame>
+
     </Grid>
 </Page>
