@@ -33,13 +33,20 @@ namespace AgriMarketSoft
         
         private void ModoUsuario()
         {
+            
+
             switch (userType)
             {
                 case 1:
                     TiendaPageFrame.Navigate(new TiendaList());
+
+                    lbTipo.Content = "Proveedor";
                     break;
                 case 2:
                     TiendaPageFrame.Navigate(new TiendaList());
+
+                    lbTipo.Content = "Cliente";
+
                     break;
                 default:
                     break;

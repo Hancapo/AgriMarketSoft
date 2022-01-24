@@ -49,7 +49,7 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <materialDesign:Card Width="250" Height="250">
+                                <materialDesign:Card x:Name="ProductoCard" Width="250" Height="250" MouseDoubleClick="ProductoCard_MouseDoubleClick">
                                     <StackPanel>
                                         <Image x:Name="imgBox" Width="150" Height="150" Stretch="Fill" Margin="5" Source="{Binding Imagen}"/>
                                         <Label Margin="20,0,0,0" Content="{Binding IdProducto}" ContentStringFormat="ID: {0}" FontSize="8" FontWeight="Light"/>

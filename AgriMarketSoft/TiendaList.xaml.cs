@@ -222,5 +222,10 @@ namespace AgriMarketSoft
             //lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().Where(x => x.Categoria == cbCategoria.Text);
 
         }
+
+        private void ProductoCard_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var win = f
+        }
     }
 }
