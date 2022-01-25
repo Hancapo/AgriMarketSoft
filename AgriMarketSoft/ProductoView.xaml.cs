@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agri.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class ProductoView : Page
     {
-        public ProductoView()
-        {
+        private Producto pcausa = new();
+        public ProductoView(Producto p)
+        { 
+            pcausa = p;
             InitializeComponent();
+            SetValuesFromProducto(pcausa);
+        }
+
+
+        public void SetValuesFromProducto(Producto p)
+        {
+            tbNombre.Content = p.NombreProducto;
+            tbPrecio.Content = p.Precio;
+            ImagenProductoView.Source = p.Imagen;
+            MapaProveedor.Address = $"https://www.google.cl/maps/@{p.LatitudP},{p.LongitudP},16.5z";
+            TBoxsDecripcion.Text = p.Descripcion;
+            tBoxContacto.Text = p.ContactoProveedor;
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

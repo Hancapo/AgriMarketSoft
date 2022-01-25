@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 using Region = Agri.Core.Region;
 
 namespace Agri.Business
@@ -146,7 +147,40 @@ namespace Agri.Business
 
         }
 
-        
+        public int CalculateID(string IdColumnName, string TableName)
+        {
+
+
+            List<int> ListaID = new();
+            string sqlcommand = $"SELECT {IdColumnName} FROM {TableName}";
+
+            foreach (DataRow dataRow in ctql.SqltoDataTable(sqlcommand).Rows)
+            {
+                ListaID.Add(Convert.ToInt32(dataRow[IdColumnName]));
+            }
+
+            ListaID.Sort();
+
+            int IdResult = 0;
+
+            foreach (var item in ListaID)
+            {
+                IdResult++;
+
+                if (item != IdResult)
+                {
+                    return IdResult;
+                }
+            }
+
+            return ListaID.Max() + 1;
+
+        }
+
+
+
+
+
     }
 }
 

@@ -28,8 +28,8 @@ namespace Agri.Connect
         static private SqlConnection sqlConnection = new($"Data Source={Server_};Initial Catalog={DB_};Integrated Security={TC_.ToString().ToLowerInvariant()}");
         static private SqlCommand sqlCommand = sqlConnection.CreateCommand();
 
-        private SqlConnection SqlConnection { get => sqlConnection; set => sqlConnection = value; }
-        private SqlCommand SqlCommand { get => sqlCommand; set => sqlCommand = value; }
+        public SqlConnection SqlConnection { get => sqlConnection; set => sqlConnection = value; }
+        public SqlCommand SqlCommand { get => sqlCommand; set => sqlCommand = value; }
 
 
         public bool CheckDatabase()

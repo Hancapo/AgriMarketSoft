@@ -1,6 +1,7 @@
 ﻿using Agri.Business;
 using Agri.Connect;
 using Agri.Core;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Region = Agri.Core.Region;
 
 namespace AgriMarketSoft
 {
@@ -24,7 +26,7 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class TiendaList : Page
     {
-
+        OdioNCapas onc = new();
         Business b = new();
         ConnectSQL ctql = new();
         List<string> CategoriaFiltro = new();
@@ -37,82 +39,9 @@ namespace AgriMarketSoft
             
         }
 
-        public List<Producto> GetProductoList()
-        {
-            List<Producto> listaProducto = new();
+        
 
-            string sqlcommand = "select * from producto";
-
-            foreach (DataRow dr in ctql.SqltoDataTable(sqlcommand).Rows)
-            {
-                Producto producto = new();
-                producto.IdProducto = Convert.ToInt32(dr["idproducto"]);
-                producto.NombreProducto = dr["nombreproducto"].ToString();
-                producto.Stock = Convert.ToInt32(dr["stock"]);
-                producto.IdCategoria = Convert.ToInt32(dr["idcategoria"]);
-                try
-                {
-                    producto.Imagen = ToImage((byte[])dr["foto"]);
-
-                }
-                catch
-                {
-                    producto.Imagen = new BitmapImage(new Uri("https://www.eglsf.info/wp-content/uploads/image-missing.png"));
-                }
-
-                try
-                {
-                    producto.Precio = Convert.ToInt32(dr["precio"]);
-
-                }
-                catch
-                {
-                    producto.Precio = 0;
-
-                }
-
-                try
-                {
-                    producto.Descripcion = dr["descripcion"].ToString();
-
-                }
-                catch
-                {
-                    producto.Descripcion = "No hay descripción disponible";
-
-                }
-
-                try
-                {
-                    producto.Medida = dr["medida"].ToString();
-
-
-                }
-                catch
-                {
-                    producto.Medida = "Sin datos";
-
-                }
-
-
-
-
-                listaProducto.Add(producto);
-            }
-
-            return listaProducto;
-        }
-
-        public static BitmapImage ToImage(byte[] array)
-        {
-            var ms = new System.IO.MemoryStream(array);
-            var image = new BitmapImage();
-            image.BeginInit();
-            image.CacheOption = BitmapCacheOption.OnDemand;
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-        }
+        
         private void LoadListViews()
         {
 
@@ -139,7 +68,7 @@ namespace AgriMarketSoft
             cbRegiones.SelectedIndex = 0;
             cbProveedores.SelectedIndex = 0;
 
-            lBoxProductos.ItemsSource = GetProductoList();
+            lBoxProductos.ItemsSource = onc.GetProductoList();
 
 
 
@@ -153,7 +82,7 @@ namespace AgriMarketSoft
                 case 0:
                     try
                     {
-                        lBoxProductos.ItemsSource = GetProductoList();
+                        lBoxProductos.ItemsSource = onc.GetProductoList();
 
                         lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.NombreProducto).ToList();
 
@@ -165,17 +94,17 @@ namespace AgriMarketSoft
 
                     break;
                 case 1:
-                    lBoxProductos.ItemsSource = GetProductoList();
+                    lBoxProductos.ItemsSource = onc.GetProductoList();
 
                     lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.NombreProducto).Reverse().ToList();   
                     break;
                 case 2:
-                    lBoxProductos.ItemsSource = GetProductoList();
+                    lBoxProductos.ItemsSource = onc.GetProductoList();
 
                     lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.Precio).ToList();
                     break;
                 case 3:
-                    lBoxProductos.ItemsSource = GetProductoList();
+                    lBoxProductos.ItemsSource = onc.GetProductoList();
 
                     lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.Precio).Reverse().ToList();
                     break;
@@ -191,7 +120,7 @@ namespace AgriMarketSoft
             {
                 try
                 {
-                    lBoxProductos.ItemsSource = GetProductoList();
+                    lBoxProductos.ItemsSource = onc.GetProductoList();
                     lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().Where(x => x.Categoria == cbCategoria.Text);
 
                 }
@@ -204,7 +133,7 @@ namespace AgriMarketSoft
             }
             else
             {
-                lBoxProductos.ItemsSource = GetProductoList();
+                lBoxProductos.ItemsSource = onc.GetProductoList();
 
             }
         }
@@ -225,7 +154,8 @@ namespace AgriMarketSoft
 
         private void ProductoCard_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var win = f
+            Producto cardo = ((Card)sender).DataContext as Producto;
+            NavigationService.Navigate(new ProductoView(cardo));
         }
     }
 }

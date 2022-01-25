@@ -14,6 +14,7 @@ namespace Agri.Core
         public float Longitud { get; set; }
         public float Latitud { get; set; }
 
+
         public bool Seleccionado { get; set; }
 
     }

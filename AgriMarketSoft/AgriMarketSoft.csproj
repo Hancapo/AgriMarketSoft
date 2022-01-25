@@ -6,7 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationIcon>valor.ico</ApplicationIcon>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="valor.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CefSharp.Common.NETCore" Version="97.1.12" />
@@ -19,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Agri.Business\Agri.Business.csproj" />
     <ProjectReference Include="..\Agri.Connect\Agri.Connect.csproj" />
+    <ProjectReference Include="..\Agri.Core\Agri.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

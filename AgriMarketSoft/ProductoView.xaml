@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AgriMarketSoft"
-            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
@@ -17,6 +17,44 @@
       Title="ProductoView">
 
     <Grid>
-        <Label Content="Producto" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="300" FontFamily="{StaticResource MaterialDesignFont}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.8*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnBack" Content="{materialDesign:PackIcon Kind=ArrowBackCircle}" Margin="0,-580,0,0" Style="{StaticResource MaterialDesignIconButton}" Click="btnBack_Click"/>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+                <Image x:Name="ImagenProductoView" Margin="0,-200,0,0" Source="missing.png" Width="300"/>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel VerticalAlignment="Bottom" Margin="20"> 
+                        <Label x:Name="tbNombre" Content="Nombre" FontSize="30"/>
+                        <Label x:Name="tbProveedor" Content="Proveedor" FontSize="20"/>
+                        <Label x:Name="tbPrecio" Language="es-CL" Content="Precio" ContentStringFormat="{}${0:N0}" FontSize="25"/>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" Margin="20">
+                        <StackPanel>
+                            <Expander Header="Descripción" Foreground="{StaticResource MaterialDesignDarkForeground}">
+                                <TextBox VerticalContentAlignment="Center" IsReadOnly="True" Style="{StaticResource MaterialDesignComboBoxEditableTextBox}"  x:Name="TBoxsDecripcion" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
+                            </Expander>
+                            <Expander Header="Ubicación del Proveedor" Foreground="{StaticResource MaterialDesignDarkForeground}">
+                                <wpf:ChromiumWebBrowser Address="www.google.cl" x:Name="MapaProveedor" Width="600" Height="500" Margin="20"/>
+                            </Expander>
+                            <Expander Header="Contacto" Foreground="{StaticResource MaterialDesignDarkForeground}">
+                                <TextBox x:Name="tBoxContacto" IsReadOnly="True"  Style="{StaticResource MaterialDesignComboBoxEditableTextBox}" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Page>

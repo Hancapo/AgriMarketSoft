@@ -40,12 +40,13 @@ namespace AgriMarketSoft
                 case 1:
                     TiendaPageFrame.Navigate(new TiendaList());
 
-                    lbTipo.Content = "Proveedor";
+                    lbTipo.Content = "Cliente";
+                    btnAgregarProducto.Visibility = Visibility.Hidden;
                     break;
                 case 2:
                     TiendaPageFrame.Navigate(new TiendaList());
 
-                    lbTipo.Content = "Cliente";
+                    lbTipo.Content = "Proveedor";
 
                     break;
                 default:

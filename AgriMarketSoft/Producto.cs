@@ -21,6 +21,13 @@ namespace Agri.Core
         public int? Precio { get; set; }
         public BitmapImage? Imagen { get; set; }
 
+        public string RutProveedor { get; set; }
+
+        public string NombreProveedor => cs.RunSqlExecuteScalar($"SELECT nombreproveedor FROM PROVEEDOR where rutproveedor = '{RutProveedor}'").ToString();
+
+        public string ContactoProveedor => cs.RunSqlExecuteScalar($"SELECT contacto FROM PROVEEDOR where rutproveedor = '{RutProveedor}'").ToString();
+        public float LatitudP => Convert.ToSingle(cs.RunSqlExecuteScalar($"SELECT latitud FROM PROVEEDOR where rutproveedor = '{RutProveedor}'"));
+        public float LongitudP => Convert.ToSingle(cs.RunSqlExecuteScalar($"SELECT longitud FROM PROVEEDOR where rutproveedor = '{RutProveedor}'"));
         public int IdCategoria { get; set; }
 
         public string Categoria => cs.RunSqlExecuteScalar($"SELECT Categoria.nombre FROM PRODUCTO INNER JOIN Categoria ON Producto.idcategoria = Categoria.idcategoria WHERE Producto.idcategoria = {IdCategoria}").ToString();

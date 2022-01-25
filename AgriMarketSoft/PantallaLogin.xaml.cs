@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
 
 namespace AgriMarketSoft
 {
@@ -79,12 +80,12 @@ namespace AgriMarketSoft
             }
         }
 
-        private void pbPassword_KeyDown(object sender, KeyEventArgs e)
+        private void pbPassword_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
 
         }
 
-        private void tbCorreo_KeyDown(object sender, KeyEventArgs e)
+        private void tbCorreo_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
 
         }

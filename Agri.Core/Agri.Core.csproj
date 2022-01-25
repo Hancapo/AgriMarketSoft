@@ -10,4 +10,8 @@
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Agri.Connect\Agri.Connect.csproj" />
+  </ItemGroup>
+
 </Project>
