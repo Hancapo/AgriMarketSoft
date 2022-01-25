@@ -1,0 +1,48 @@
+﻿<Page x:Class="AgriMarketSoft.AddProducto"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgriMarketSoft"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      mc:Ignorable="d" 
+      d:DesignHeight="654.545454545454" d:DesignWidth="1280"
+      Title="AddProducto">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnInsertProducto" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=ContentSaveAllOutline}" Click="btnInsertProducto_Click_1"/>
+                <Button x:Name="btnBackTo" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=ArrowBack}" Click="btnBackTo_Click"/>
+
+            </StackPanel>
+            <Image x:Name="ImgUpload" Width="500" Height="500" Margin="20" Source="https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg" MouseDown="ImgUpload_MouseDown"/>
+        </StackPanel>
+        <ScrollViewer Grid.Column="1">
+            <StackPanel VerticalAlignment="Center">
+                <TextBox x:Name="NombreProducto" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nombre del producto"/>
+                <TextBox x:Name="StockProducto" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Stock"/>
+                <ComboBox  x:Name="cbCategoria" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.HelperText="Categoría"/>
+                <TextBox x:Name="tbDecripcion" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Height="150" FontSize="12" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Descripción"/>
+                <TextBox x:Name="Medida" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Medida"/>
+                <TextBox x:Name="Precio" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Precio"/>
+                <ComboBox x:Name="CbProveedor" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Proveedor"/>
+
+
+            </StackPanel>
+        </ScrollViewer>
+        
+
+    </Grid>
+</Page>

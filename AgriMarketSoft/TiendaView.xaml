@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
             <Label Content="AgriMarket MarketPlace" Margin="10" FontFamily="{StaticResource MaterialDesignFont}" FontSize="20"/>
-            <Button x:Name="btnAgregarProducto" Content="{materialDesign:PackIcon Kind=PlusCircle}" Style="{StaticResource MaterialDesignIconButton}"/>
+            <Button x:Name="btnAgregarProducto" Content="{materialDesign:PackIcon Kind=PlusCircle}" Style="{StaticResource MaterialDesignIconButton}" Click="btnAgregarProducto_Click"/>
             <Label x:Name="lbTipo" Content="Cliente" Margin="900,0,0,0" Height="20" HorizontalAlignment="Right"/>
             <Label Content="{materialDesign:PackIcon Kind=User}" Height="20" HorizontalAlignment="Right"/>
         </StackPanel>

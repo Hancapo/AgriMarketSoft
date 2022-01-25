@@ -1,4 +1,5 @@
 ﻿using Agri.Business;
+using Agri.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace AgriMarketSoft
     {
         Business b = new();
         int userType = -1;
-        public TiendaView(int UserType)
+        public TiendaView(Usuario userlog)
         {
-            userType = UserType;
+            userType = userlog.;
             InitializeComponent();
             ModoUsuario();
         }
@@ -52,6 +53,12 @@ namespace AgriMarketSoft
                 default:
                     break;
             }
+        }
+
+        private void btnAgregarProducto_Click(object sender, RoutedEventArgs e)
+        {
+            btnAgregarProducto.Visibility =Visibility.Hidden;
+            NavigationService.Navigate(new AddProducto());
         }
     }
 }
