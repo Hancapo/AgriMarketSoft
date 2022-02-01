@@ -1,5 +1,6 @@
 ﻿using Agri.Business;
 using Agri.Connect;
+using Agri.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,8 @@ namespace AgriMarketSoft
                         MessageBox.Show("La contraseña es incorrecta.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     case 3:
-                        NavigationService.Navigate(new TiendaView(UserT));
+                        Usuario u = new() { Correo = tbCorreo.Text };
+                        NavigationService.Navigate(new TiendaView(u));
                         break;
                     default:
                         break;

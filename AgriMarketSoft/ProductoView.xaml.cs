@@ -34,6 +34,7 @@ namespace AgriMarketSoft
         {
             tbNombre.Content = p.NombreProducto;
             tbPrecio.Content = p.Precio;
+            tbProveedor.Content = p.NombreProveedor;
             ImagenProductoView.Source = p.Imagen;
             MapaProveedor.Address = $"https://www.google.cl/maps/@{p.LatitudP},{p.LongitudP},16.5z";
             TBoxsDecripcion.Text = p.Descripcion;
@@ -42,7 +43,7 @@ namespace AgriMarketSoft
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new TiendaView(new Usuario() { }));
         }
     }
 }

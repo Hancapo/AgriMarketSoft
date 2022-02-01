@@ -16,58 +16,5 @@
       d:DesignHeight="654.5454545454545454" d:DesignWidth="1280"
       Title="TiendaList">
 
-    <Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="25*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel>
-                <ComboBox x:Name="cbCategoria" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20" materialDesign:HintAssist.Hint="Categoría" Foreground="{StaticResource MaterialDesignDarkForeground}" SelectionChanged="cbCategoria_SelectionChanged"/>
-                <ComboBox x:Name="cbProveedores" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20" materialDesign:HintAssist.Hint="Proveedores" Foreground="{StaticResource MaterialDesignDarkForeground}" SelectionChanged="cbProveedores_SelectionChanged"/>
-                <ComboBox x:Name="cbRegiones" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20" materialDesign:HintAssist.Hint="Regiones" Foreground="{StaticResource MaterialDesignDarkForeground}" SelectionChanged="cbRegiones_SelectionChanged"/>
-            </StackPanel>
-            <Grid Grid.Column="1" Background="#FF2B2B2B">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="8*"/>
-                    <RowDefinition Height="123*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Background="{DynamicResource MaterialDesignDarkSeparatorBackground}" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="LeftToRight">
-                    <ComboBox SelectedIndex="0" x:Name="cbFiltros" Width="200" FlowDirection="LeftToRight" VerticalContentAlignment="Top" IsEditable="False" Margin="5" SelectionChanged="cbFiltros_SelectionChanged"/>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Label Content="{materialDesign:PackIcon Kind=Search}" Margin="5"/>
-                        <TextBox Width="300" Margin="5" />
-                    </StackPanel>
-                    
-                </StackPanel>
-                <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="20">
-                    <ListBox x:Name="lBoxProductos" d:ItemsSource="{d:SampleData ItemCount=10}" HorizontalAlignment="Center" Height="578">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <materialDesign:Card x:Name="ProductoCard" Width="250" Height="250" MouseDoubleClick="ProductoCard_MouseDoubleClick">
-                                    <StackPanel>
-                                        <Image x:Name="imgBox" Width="150" Height="150" Stretch="Fill" Margin="5" Source="{Binding Imagen}"/>
-                                        <Label Margin="20,0,0,0" Content="{Binding IdProducto}" ContentStringFormat="ID: {0}" FontSize="8" FontWeight="Light"/>
-                                        <Label Margin="20,0,0,0" Content="{Binding NombreProducto}" FontSize="10" FontWeight="Bold"/>
-                                        <Label Margin="20,0,0,0" Language="es-CL" Content="{Binding Precio}" ContentStringFormat="{}${0:N0}" FontWeight="Bold"/>
-                                        <Label Margin="20,0,0,0" Language="es-CL" Content="{Binding PrecioSinIva}" ContentStringFormat="{}Sin IVA ${0:N0}" FontSize="9"/>
-
-
-                                    </StackPanel>
-                                </materialDesign:Card>
-                                
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </StackPanel>
-            </Grid>
-
-        </Grid>
-    </Grid>
+    
 </Page>

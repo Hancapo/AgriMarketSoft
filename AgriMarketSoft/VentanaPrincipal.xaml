@@ -20,7 +20,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="#FF252525" x:Name="spTab" MouseDown="spTab_MouseDown">
+        <StackPanel Background="#FFC1C1C1" x:Name="spTab" MouseDown="spTab_MouseDown">
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="btnMinimize" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=WindowMinimize,Size=30}" Click="btnMinimize_Click"/>
                 <Button x:Name="btnQuit" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=CloseCircle,Size=30}" Click="btnQuit_Click"/>

@@ -31,13 +31,13 @@
         </StackPanel>
         <ScrollViewer Grid.Column="1">
             <StackPanel VerticalAlignment="Center">
-                <TextBox x:Name="NombreProducto" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nombre del producto"/>
-                <TextBox x:Name="StockProducto" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Stock"/>
-                <ComboBox  x:Name="cbCategoria" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.HelperText="Categoría"/>
-                <TextBox x:Name="tbDecripcion" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Height="150" FontSize="12" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Descripción"/>
-                <TextBox x:Name="Medida" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Medida"/>
-                <TextBox x:Name="Precio" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Precio"/>
-                <ComboBox x:Name="CbProveedor" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Proveedor"/>
+                <TextBox x:Name="NombreProducto" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nombre del producto"/>
+                <TextBox x:Name="StockProducto" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Stock"/>
+                <ComboBox  x:Name="cbCategoria" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.HelperText="Categoría"/>
+                <TextBox x:Name="tbDecripcion" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Height="150" FontSize="12" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Descripción"/>
+                <TextBox x:Name="Medida" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Medida"/>
+                <TextBox x:Name="Precio" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Precio"/>
+                <ComboBox x:Name="CbProveedor" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="20" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Proveedor"/>
 
 
             </StackPanel>

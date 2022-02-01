@@ -1,19 +1,9 @@
 ﻿using Agri.Business;
 using Agri.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace AgriMarketSoft
 {
@@ -22,13 +12,20 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class TiendaView : Page
     {
-        Business b = new();
+        Business b = new Business();
         int userType = -1;
+        Usuario u;
         public TiendaView(Usuario userlog)
         {
-            userType = userlog.;
+            userType = userlog.IdTipo;
+            u = userlog;
             InitializeComponent();
             ModoUsuario();
+            if (lbTipo.Content.ToString().Contains("Proveedor"))
+            {
+                btnAgregarProducto.Visibility = Visibility.Visible;
+
+            }
         }
 
         
@@ -41,13 +38,14 @@ namespace AgriMarketSoft
                 case 1:
                     TiendaPageFrame.Navigate(new TiendaList());
 
-                    lbTipo.Content = "Cliente";
+                    lbTipo.Content = $"Cliente: {u.nombres}";
                     btnAgregarProducto.Visibility = Visibility.Hidden;
                     break;
                 case 2:
                     TiendaPageFrame.Navigate(new TiendaList());
+                    btnAgregarProducto.Visibility = Visibility.Visible;
 
-                    lbTipo.Content = "Proveedor";
+                    lbTipo.Content = $"Proveedor: {u.nombres}";
 
                     break;
                 default:
@@ -58,7 +56,16 @@ namespace AgriMarketSoft
         private void btnAgregarProducto_Click(object sender, RoutedEventArgs e)
         {
             btnAgregarProducto.Visibility =Visibility.Hidden;
-            NavigationService.Navigate(new AddProducto());
+            NavigationService.Navigate(new AddProducto(u.rutusuario));
+        }
+
+
+        private void CerrarSesion_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de querer cerrar sesión?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

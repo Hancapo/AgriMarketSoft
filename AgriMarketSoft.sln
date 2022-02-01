@@ -5,13 +5,13 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgriMarketSoft", "AgriMarketSoft\AgriMarketSoft.csproj", "{302F58C1-8BC1-4CB9-AC94-14A7A8F4B62C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agri.Core", "Agri.Core\Agri.Core.csproj", "{E212A67B-097A-44B8-A7B2-C9B1569E1FAC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agri.Connect", "Agri.Connect\Agri.Connect.csproj", "{BE616317-8FFF-44D3-B509-84DE45CD6223}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agri.Business", "Agri.Business\Agri.Business.csproj", "{4DBAF61A-0411-4AD3-A9AC-DB533D16357D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriMarketTests", "AgriMarketTests\AgriMarketTests.csproj", "{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgriMarketTests", "AgriMarketTests\AgriMarketTests.csproj", "{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agri.Core", "Agri.Core\Agri.Core.csproj", "{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{302F58C1-8BC1-4CB9-AC94-14A7A8F4B62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{302F58C1-8BC1-4CB9-AC94-14A7A8F4B62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{302F58C1-8BC1-4CB9-AC94-14A7A8F4B62C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E212A67B-097A-44B8-A7B2-C9B1569E1FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E212A67B-097A-44B8-A7B2-C9B1569E1FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E212A67B-097A-44B8-A7B2-C9B1569E1FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E212A67B-097A-44B8-A7B2-C9B1569E1FAC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE616317-8FFF-44D3-B509-84DE45CD6223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE616317-8FFF-44D3-B509-84DE45CD6223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE616317-8FFF-44D3-B509-84DE45CD6223}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

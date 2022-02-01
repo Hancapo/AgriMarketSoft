@@ -28,14 +28,16 @@ namespace AgriMarketSoft
         OdioNCapas onc = new();
         ConnectSQL ss = new();
         Business b = new();
-        string Modo;
+        string RutProv;
+        string ImgFileName;
 
-        public AddProducto(string modo)
+        public AddProducto(string rutproveedor)
         {
-            Modo = modo;
+            RutProv = rutproveedor;
             InitializeComponent();
             cbCategoria.ItemsSource = b.GetCategoriaList().Select(x=> x.NombreCategoria).ToList();
-            CbProveedor.ItemsSource = ss.SqltoDataTable($"SELECT nombreproveedor from proveedor where idproveedor = {Modo}");
+            CbProveedor.ItemsSource = new List<string>() { ss.RunSqlExecuteScalar($"SELECT nombreproveedor from proveedor where rutproveedor = '{RutProv}'").ToString() };
+            CbProveedor.SelectedIndex = 0;
         }
 
         private void ImgUpload_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -55,6 +57,7 @@ namespace AgriMarketSoft
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                ImgFileName = ofd.FileName; 
                 ImgUpload.Source = new BitmapImage(new Uri(ofd.FileName));
             }
         }
@@ -72,8 +75,26 @@ namespace AgriMarketSoft
             p.Descripcion = tbDecripcion.Text;
             p.Medida = Medida.Text;
             p.Precio = Convert.ToInt32(Precio.Text);
-            p.Imagen = (BitmapImage?)ImgUpload.Source;
-            p.RutProveedor = CbProveedor.Text;
+            p.RutProveedor = RutProv;
+            try
+            {
+                p.Imagen = (BitmapImage?)ImgUpload.Source;
+
+            }
+            catch
+            {
+                p.Imagen = null;
+            }
+            try
+            {
+                p.ImagenByte = b.ImagePathToBytes(ImgFileName);
+
+            }
+            catch
+            {
+
+                p.ImagenByte = null;
+            }
 
             if (onc.CreateProducto(p))
             {

@@ -38,7 +38,7 @@ namespace AgriMarketSoft
                 }
                 catch
                 {
-                    producto.Imagen = new BitmapImage(new Uri("https://www.eglsf.info/wp-content/uploads/image-missing.png"));
+                    producto.Imagen = new BitmapImage(new Uri("https://www.svgrepo.com/show/112850/no-photo.svg"));
                 }
 
                 try
@@ -86,7 +86,47 @@ namespace AgriMarketSoft
 
         public bool CreateProducto(Producto producto)
         {
-            string sqlcommand = ($"INSERT INTO PRODUCTO VALUES ({b.CalculateID("idproducto", "producto")},{producto.NombreProducto},{producto.Stock},{producto.IdCategoria},{producto.Descripcion},{producto.Medida},{producto.Precio},{producto.Imagen},{producto.RutProveedor})");
+
+            SqlCommand ProcProd = new("CrearProducto", ctql.SqlConnection);
+
+            ProcProd.CommandType = CommandType.StoredProcedure;
+
+            ProcProd.Parameters.AddWithValue("@IdPro", SqlDbType.Int).Value = producto.IdProducto;
+            ProcProd.Parameters.AddWithValue("@NombrePro", SqlDbType.VarChar).Value = producto.NombreProducto;
+            ProcProd.Parameters.AddWithValue("@StockPro", SqlDbType.Int).Value = producto.Stock;
+            ProcProd.Parameters.AddWithValue("@IdCategoria", SqlDbType.Int).Value = producto.IdCategoria;
+            ProcProd.Parameters.AddWithValue("@DecripPro", SqlDbType.VarChar).Value = producto.Descripcion;
+            ProcProd.Parameters.AddWithValue("@MedidaPro", SqlDbType.VarChar).Value = producto.Medida;
+            ProcProd.Parameters.AddWithValue("@PrecioPro", SqlDbType.Int).Value = producto.Precio;
+            ProcProd.Parameters.AddWithValue("@RutProveedor", SqlDbType.VarChar).Value = producto.rutproveedor;
+
+            if (producto.ImagenByte != null)
+            {
+                ProcProd.Parameters.AddWithValue("@FotoPro", SqlDbType.Image).Value = producto.ImagenByte;
+
+            }
+            else
+            {
+                ProcProd.Parameters.AddWithValue("@FotoPro", SqlDbType.Image).Value = null;
+
+            }
+
+
+            try
+            {
+                ProcProd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
+
+
+
+            string sqlcommand = ($"INSERT INTO PRODUCTO (idproducto, nombreproducto, stock, idcategoria, descripcion, medida, precio, rutproveedor) VALUES ({b.CalculateID("idproducto", "producto")},'{producto.NombreProducto}',{producto.Stock},{producto.IdCategoria},'{producto.Descripcion}','{producto.Medida}',{producto.Precio},'{producto.RutProveedor}')");
             try
             {
                 ctql.RunSqlNonQuery(sqlcommand);
