@@ -35,5 +35,40 @@ namespace AgriMarketSoft
         {
             
         }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvProductosProveedor.SelectedItem != null)
+            {
+                var productoLista = (Producto)lvProductosProveedor.SelectedItem;
+
+                Producto pro = new();
+                pro.IdProducto = Convert.ToInt32(productoLista.IdProducto);
+
+                if (System.Windows.MessageBox.Show("¿Esta seguro que quiere eliminar el producto :" + productoLista.NombreProducto + "?", "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    if (odio.EliminarProducto(pro))
+                    {
+                        System.Windows.MessageBox.Show("Se ha eliminado el producto");
+                     
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("No se ha elimnado nada");
+                    }
+                }
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Seleccione una fila para eliminar");
+            }
+        }
+
+
+        
+   
+
+
+
     }
 }

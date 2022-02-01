@@ -181,5 +181,25 @@ namespace AgriMarketSoft
 
             return listaProducto;
         }
+
+
+
+        public bool EliminarProducto(Producto pro)
+        {
+            SqlCommand cmd = new("EliminarProducto", ctql.SqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdProd", SqlDbType.Int).Value = pro.IdProducto;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch 
+            {
+
+                return false;   
+            }
+        }
     }
 }
