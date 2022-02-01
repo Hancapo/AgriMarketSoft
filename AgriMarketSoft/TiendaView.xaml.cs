@@ -59,7 +59,7 @@ namespace AgriMarketSoft
         private void btnAgregarProducto_Click(object sender, RoutedEventArgs e)
         {
             btnAgregarProducto.Visibility =Visibility.Hidden;
-            NavigationService.Navigate(new AddProducto(u.rutusuario));
+            NavigationService.Navigate(new AddProductNew(u.rutusuario));
         }
 
 
