@@ -41,7 +41,7 @@
 
                 <materialDesign:Chip Margin="10"  Content="Usuario" x:Name="lbTipo" VerticalAlignment="Center">
                     <materialDesign:Chip.Icon>
-                        <Button Style="{StaticResource MaterialDesignIconButton}" x:Name="btnPerfil">
+                        <Button Style="{StaticResource MaterialDesignIconButton}" x:Name="btnPerfil" Click="btnPerfil_Click">
                             <Label Content="{materialDesign:PackIcon Kind=User,Size=30}" Margin="-5,-15,10,0"/>
                         </Button>
                     </materialDesign:Chip.Icon>

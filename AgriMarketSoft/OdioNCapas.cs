@@ -150,5 +150,36 @@ namespace AgriMarketSoft
             image.EndInit();
             return image;
         }
+
+
+
+
+
+        public List<Producto> ListarProductosFromProveedor(string correo)
+        {
+            List<Producto> listaProducto = new();
+
+            string sqlCommand = $" select pro.idProducto as idProducto, pro.nombreProducto as nombreProducto, pro.stock as stock, cat.nombre as nombreCategoria, pro.descripcion as DescripcionProducto, pro.medida as MedidaProducto, pro.precio as precio from producto pro inner join categoria cat on pro.idcategoria = cat.idcategoria  where  = '{correo}'";
+
+            foreach (DataRow dr in ctql.SqltoDataTable(sqlCommand).Rows)
+            {
+                Producto p = new()
+                {
+                    IdProducto = Convert.ToInt32(dr["idProducto"]),
+                    NombreProducto = dr["nombreProducto"].ToString(),
+                    Stock = Convert.ToInt32(dr["stock"]),
+                    NombreCategoria = dr["nombreCategoria"].ToString(),
+                    Descripcion = dr["Descripcion"].ToString(),
+                    Medida = dr["MedidaProducto"].ToString(),
+                    Precio = Convert.ToInt32(dr["precio"]),
+
+                };
+
+                listaProducto.Add(p);
+
+            }
+
+            return listaProducto;
+        }
     }
 }
