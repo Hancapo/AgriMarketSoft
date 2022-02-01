@@ -37,7 +37,7 @@ namespace Agri.Core
 
         public string? Categoria => cs.RunSqlExecuteScalar($"SELECT Categoria.nombre FROM PRODUCTO INNER JOIN Categoria ON Producto.idcategoria = Categoria.idcategoria WHERE Producto.idcategoria = {IdCategoria}").ToString();
 
-        public double? PrecioSinIva => (Convert.ToDouble(Precio) * 0.89);
+        public int? PrecioSinIva => (int)Math.Round((Convert.ToDouble(Precio) * 0.89));
 
         public byte[]? ImagenByte { get; set; }  
 

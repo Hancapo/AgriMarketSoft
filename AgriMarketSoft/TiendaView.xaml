@@ -159,11 +159,11 @@
                                 <DataTemplate>
                                     <materialDesign:Card Width="250" Height="250" x:Name="ProductoCard" MouseLeftButtonDown="ProductoCard_MouseLeftButtonDown">
                                         <StackPanel>
-                                            <Image x:Name="imgBox" Width="150" Height="150" Stretch="Fill" Margin="5" Source="{Binding Imagen}"/>
-                                            <Label Margin="20,0,0,0" Content="{Binding IdProducto}" ContentStringFormat="ID: {0}" FontSize="8" FontWeight="Light"/>
-                                            <Label Margin="20,0,0,0" Content="{Binding NombreProducto}" FontSize="10" FontWeight="Bold"/>
-                                            <Label Margin="20,0,0,0" Content="{Binding Precio, StringFormat=C}" ContentStringFormat="${0}" FontWeight="Bold"/>
-                                            <Label Margin="20,0,0,0" Content="{Binding PrecioSinIva, StringFormat=C}" ContentStringFormat="Sin IVA ${0}" FontSize="9"/>
+                                            <Image x:Name="imgBox" Width="120" Height="120" Stretch="Fill" Margin="5" Source="{Binding Imagen}"/>
+                                            <Label Margin="20,0,0,0" Content="{Binding IdProducto}" ContentStringFormat="ID: {0}" FontSize="10" FontWeight="Light"/>
+                                            <Label Margin="20,0,0,0" Content="{Binding NombreProducto}" FontSize="14" FontWeight="Bold"/>
+                                            <Label Margin="20,0,0,0" FontSize="14" ContentStringFormat="{}${0:N0}" Language="es-CL" Content="{Binding Precio, StringFormat=C}" FontWeight="Bold"/>
+                                            <Label Margin="20,0,0,0" FontSize="14" Language="es-CL" Content="{Binding PrecioSinIva, StringFormat=C}" ContentStringFormat="{}Sin IVA ${0:N0}"/>
 
 
                                         </StackPanel>
