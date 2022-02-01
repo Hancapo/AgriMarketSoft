@@ -43,7 +43,7 @@ namespace AgriMarketSoft
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new TiendaView(new Usuario() { }));
+            NavigationService.GoBack();
         }
     }
 }
