@@ -310,5 +310,13 @@ namespace AgriMarketSoft
         {
 
         }
+
+        private void btnPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            if (u.idTipo == 2)
+            {
+                NavigationService.Navigate(new Perfil(u));
+            }
+        }
     }
 }

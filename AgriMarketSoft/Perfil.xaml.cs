@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agri.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,19 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class Perfil : Page
     {
-        public Perfil()
+        private Usuario user;
+
+        private OdioNCapas odio = new();
+        public Perfil(Usuario usuario)
         {
             InitializeComponent();
+            user = usuario;
+            lvProductosProveedor.ItemsSource = odio.ListarProductosFromProveedor(usuario.RutUsuario);
+        }
+
+        private void lvProductosProveedor_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

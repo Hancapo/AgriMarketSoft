@@ -21,6 +21,8 @@ namespace Agri.Core
         public int? Precio { get; set; }
         public BitmapImage? Imagen { get; set; }
 
+        public string NombreCategoria { get; set; } 
+
         public string? ProductoRegion => cs.RunSqlExecuteScalar($"SELECT region.nombreregion FROM PRODUCTO INNER JOIN PROVEEDOR ON producto.rutproveedor = proveedor.rutproveedor INNER JOIN COMUNA ON proveedor.idcomuna = comuna.idcomuna INNER JOIN Provincia ON comuna.idprovincia = Provincia.idprovincia INNER JOIN REGION ON Provincia.idregion = Region.idregion WHERE Producto.rutproveedor = '{RutProveedor}'").ToString();
 
         public string? RutProveedor { get; set; }

@@ -22,8 +22,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" x:Name="spBarra" VerticalAlignment="Center">
+            <Button x:Name="btnEliminar" Foreground="{StaticResource MaterialDesignLightForeground}" Content="{materialDesign:PackIcon Kind=Delete}" Style="{StaticResource MaterialDesignIconButton}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ListView x:Name="lvProductosProveedor" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="500" ItemsSource="{Binding Path=Collection}" VerticalAlignment="Center" HorizontalAlignment="Center" Loaded="lvProductosProveedor_Loaded">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id Producto" DisplayMemberBinding="{Binding IdProducto}"/>
+                        <GridViewColumn Header="Nombre producto" DisplayMemberBinding="{Binding NombreProducto}"/>
+                        <GridViewColumn Header="Stock" DisplayMemberBinding="{Binding Stock}"/>
+                        <GridViewColumn Header="Nombre Categoría" DisplayMemberBinding="{Binding NombreCategoria}"/>
+                        <GridViewColumn Header="Descripción" DisplayMemberBinding="{Binding Descripcion}"/>
+                        <GridViewColumn Header="Medido Producto" DisplayMemberBinding="{Binding Medida}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
     </Grid>
 </Page>
