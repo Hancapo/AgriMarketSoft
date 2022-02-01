@@ -37,7 +37,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button Margin="10" x:Name="CerrarSesion" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=LogoutVariant}" Click="CerrarSesion_Click_1"/>
+                <Button Margin="10" x:Name="CerrarSesion" Style="{StaticResource MaterialDesignIconButton}" Content="{materialDesign:PackIcon Kind=LogoutVariant}" Click="CerrarSesion_Click"/>
 
                 <materialDesign:Chip Margin="10"  Content="Usuario" x:Name="lbTipo" VerticalAlignment="Center">
                     <materialDesign:Chip.Icon>

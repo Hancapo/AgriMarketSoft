@@ -25,7 +25,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Agri.Business\Agri.Business.csproj" />
     <ProjectReference Include="..\Agri.Connect\Agri.Connect.csproj" />
-    <ProjectReference Include="..\Agri.CoreWPF\Agri.CoreWPF.csproj" />
     <ProjectReference Include="..\Agri.Core\Agri.Core.csproj" />
   </ItemGroup>
 

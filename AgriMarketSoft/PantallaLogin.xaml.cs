@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 
 namespace AgriMarketSoft
@@ -35,6 +36,44 @@ namespace AgriMarketSoft
 
         private void BtnIngresar_Click(object sender, RoutedEventArgs e)
         {
+            Ingresar();
+        }
+
+        private void BtnTest_Click(object sender, RoutedEventArgs e)
+        {
+            if (csql.CheckDatabase())
+            {
+                MessageBox.Show("La conexión ha sido exitosa.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido conectar con la base de datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+        }
+
+        private void pbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Ingresar();
+
+            }
+
+        }
+
+        private void tbCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Ingresar();
+
+            }
+
+        }
+
+        private void Ingresar()
+        {
             if (tbCorreo.Text == string.Empty)
             {
                 MessageBox.Show("El correo no puede estar vacío, introduzca un correo e inténtelo nuevamente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -49,7 +88,6 @@ namespace AgriMarketSoft
 
 
                 var LoginT = bb.LoginProcess(tbCorreo.Text, pbPassword.Password).Item1;
-                var UserT = bb.LoginProcess(tbCorreo.Text, pbPassword.Password).Item2;
 
                 switch (LoginT)
                 {
@@ -67,29 +105,6 @@ namespace AgriMarketSoft
                         break;
                 }
             }
-        }
-
-        private void BtnTest_Click(object sender, RoutedEventArgs e)
-        {
-            if (csql.CheckDatabase())
-            {
-                MessageBox.Show("La conexión ha sido exitosa.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("No se ha podido conectar con la base de datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-        }
-
-        private void pbPassword_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-
-        }
-
-        private void tbCorreo_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-
         }
     }
 }
