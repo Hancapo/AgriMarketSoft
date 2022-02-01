@@ -62,47 +62,104 @@ namespace AgriMarketSoft
 
 
 
-        private void btnInsertProducto_Click_1(object sender, RoutedEventArgs e)
+        private void btnInsertProducto_Click(object sender, RoutedEventArgs e)
         {
-            Producto p = new();
 
-            p.IdProducto = b.CalculateID("idproducto", "producto");
-            p.NombreProducto = NombreProducto.Text;
-            p.Stock = Convert.ToInt32(StockProducto.Text);
-            p.IdCategoria = cbCategoria.SelectedIndex + 1;
-            p.Descripcion = tbDecripcion.Text;
-            p.Medida = Medida.Text;
-            p.Precio = Convert.ToInt32(Precio.Text);
-            p.RutProveedor = RutProv;
-            try
+            if (ValidacionesProducto())
             {
-                p.Imagen = (BitmapImage?)ImgUpload.Source;
+                Producto p = new();
 
-            }
-            catch
-            {
-                p.Imagen = null;
-            }
-            try
-            {
-                p.ImagenByte = b.ImagePathToBytes(ImgFileName);
+                p.IdProducto = b.CalculateID("idproducto", "producto");
+                p.NombreProducto = NombreProducto.Text;
+                p.Stock = Convert.ToInt32(StockProducto.Text);
+                p.IdCategoria = cbCategoria.SelectedIndex + 1;
+                p.Descripcion = tbDecripcion.Text;
+                p.Medida = $"{Medida.Text} {cbUnidadMedida.Text}";
+                p.Precio = Convert.ToInt32(Precio.Text);
+                p.RutProveedor = RutProv;
+                try
+                {
+                    p.Imagen = (BitmapImage?)ImgUpload.Source;
 
-            }
-            catch
-            {
+                }
+                catch
+                {
+                    p.Imagen = null;
+                }
+                try
+                {
+                    p.ImagenByte = b.ImagePathToBytes(ImgFileName);
 
-                p.ImagenByte = null;
-            }
+                }
+                catch
+                {
 
-            if (onc.CreateProducto(p))
-            {
-                MessageBox.Show("El producto ha sido agregado correctamente", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    p.ImagenByte = null;
+                }
+
+                if (onc.CreateProducto(p))
+                {
+                    MessageBox.Show("El producto ha sido agregado correctamente", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("El producto no ha podido ser ingresa", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
             }
             else
             {
-                MessageBox.Show("El producto no ha podido ser ingresa", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show("Faltan campos a rellenar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+
+        }
+
+        private void Medida_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.TryParse(Medida.Text, out int a))
+            {
+                Medida.Text = Medida.Text;
+            }
+        }
+
+        private void StockProducto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.TryParse(StockProducto.Text, out int a))
+            {
+                StockProducto.Text = StockProducto.Text;
+            }
+        }
+
+        private void Precio_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.TryParse(Precio.Text, out int a))
+            {
+                Precio.Text = Precio.Text;
+            }
+        }
+
+        private bool ValidacionesProducto()
+        {
+            int Vald = 0;
+
+            //TextBoxes Validation
+            if (!string.IsNullOrEmpty(NombreProducto.Text)) { Vald++; }
+            if (!string.IsNullOrEmpty(StockProducto.Text)) { Vald++; }
+            if (!string.IsNullOrEmpty(Precio.Text)) { Vald++; }
+            if (!string.IsNullOrEmpty(Medida.Text)) { Vald++; }
+            if (!string.IsNullOrEmpty(tbDecripcion.Text)) { Vald++; }
+
+            //ComboBoxes Validation
+            if (cbCategoria.SelectedIndex != -1) { Vald++; }
+            if (cbUnidadMedida.SelectedIndex != -1) { Vald++; }
+            if (CbProveedor.SelectedIndex != -1) { Vald++; }
+
+            return Vald switch
+            {
+                8 => true,
+                _ => false
+            };
 
         }
     }
