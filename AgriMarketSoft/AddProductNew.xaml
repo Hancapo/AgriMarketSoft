@@ -92,14 +92,14 @@
                                     </StackPanel>
                                 </materialDesign:HintAssist.Hint>
                             </TextBox>
-                            <ComboBox x:Name="cbUnidadMedida" Width="110" Height="44">
+                            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" x:Name="cbUnidadMedida" Width="110" Height="44">
                                 <ComboBoxItem Content="Gramo(s)"/>
                                 <ComboBoxItem Content="Kilo(s)"/>
                                 <ComboBoxItem Content="Litro(s)"/>
                                 <ComboBoxItem Content="CC(s)"/>
                             </ComboBox>
                         </StackPanel>
-                        <Image x:Name="ImgUpload" Width="150" Height="150" Margin="20" Stretch="Uniform" Source="missing.png"/>
+                        <Image x:Name="ImgUpload" Width="150" Height="150" Margin="20" Stretch="Uniform" Source="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Photos.png" MouseDown="ImgUpload_MouseDown"/>
                         <StackPanel Orientation="Horizontal">
                             <Button x:Name="btnInsertProducto" Width="150" Margin="10" Click="btnInsertProducto_Click">
                                 <StackPanel Orientation="Horizontal">
@@ -108,7 +108,7 @@
                                 </StackPanel>
 
                             </Button>
-                            <Button x:Name="btnBackTo" Width="150" Margin="10">
+                            <Button x:Name="btnBackTo" Width="150" Margin="10" Click="btnBackTo_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Volver"/>
                                     <Label Content="{materialDesign:PackIcon Kind=ArrowBack}"/>

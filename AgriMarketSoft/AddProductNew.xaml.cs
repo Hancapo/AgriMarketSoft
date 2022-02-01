@@ -38,11 +38,6 @@ namespace AgriMarketSoft
             CbProveedor.SelectedIndex = 0;
         }
 
-        private void ImgUpload_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("XD");
-        }
-
         private void btnBackTo_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
@@ -100,6 +95,7 @@ namespace AgriMarketSoft
                 if (onc.CreateProducto(p))
                 {
                     MessageBox.Show("El producto ha sido agregado correctamente", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
                 }
                 else
                 {
@@ -117,25 +113,25 @@ namespace AgriMarketSoft
 
         private void Medida_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (int.TryParse(Medida.Text, out int a))
+            if (!int.TryParse(Medida.Text, out int a))
             {
-                Medida.Text = Medida.Text;
+                Medida.Text = String.Empty;
             }
         }
 
         private void StockProducto_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (int.TryParse(StockProducto.Text, out int a))
+            if (!int.TryParse(StockProducto.Text, out int a))
             {
-                StockProducto.Text = StockProducto.Text;
+                StockProducto.Text = String.Empty;
             }
         }
 
         private void Precio_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (int.TryParse(Precio.Text, out int a))
+            if (!int.TryParse(Precio.Text, out int a))
             {
-                Precio.Text = Precio.Text;
+                Precio.Text = String.Empty;
             }
         }
 
