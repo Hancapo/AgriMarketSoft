@@ -38,7 +38,7 @@ namespace AgriMarketSoft
                 }
                 catch
                 {
-                    producto.Imagen = new BitmapImage(new Uri("https://www.svgrepo.com/show/112850/no-photo.svg"));
+                    producto.Imagen = new BitmapImage(new Uri("https://www.eglsf.info/wp-content/uploads/image-missing.png"));
                 }
 
                 try

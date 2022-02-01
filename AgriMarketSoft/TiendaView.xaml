@@ -107,13 +107,13 @@
                                 <ListView d:ItemsSource="{d:SampleData ItemCount=10}" Margin="20,0,0,0" x:Name="lvRegiones" SelectionMode="Single">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <CheckBox  Foreground="{StaticResource MaterialDesignLightForeground}" Content="{Binding NombreRegion}" x:Name="cbSelectRegion" IsChecked="{Binding Seleccionado}"/>
+                                            <CheckBox  Foreground="{StaticResource MaterialDesignLightForeground}" Content="{Binding NombreRegion}" x:Name="cbSelectRegion" IsChecked="{Binding Seleccionado}" Checked="cbSelectRegion_Checked" Unchecked="cbSelectRegion_Unchecked"/>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
                             </StackPanel>
                         </Expander>
-                        <Expander Foreground="{StaticResource MaterialDesignDarkForeground}">
+                        <Expander Visibility="Hidden" Foreground="{StaticResource MaterialDesignDarkForeground}">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <Label  Content="Precio" FontSize="16" Foreground="{StaticResource MaterialDesignLightForeground}"/>
@@ -140,10 +140,11 @@
                         <RowDefinition Height="123*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Background="{DynamicResource MaterialDesignLightSeparatorBackground}" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="LeftToRight">
-                        <ComboBox SelectedIndex="0" x:Name="cbFiltros" Width="200" FlowDirection="LeftToRight" VerticalContentAlignment="Top" IsEditable="False" Margin="5" SelectionChanged="cbFiltros_SelectionChanged"/>
+                        <ComboBox SelectedIndex="0" x:Name="cbFiltros" Width="200" FlowDirection="LeftToRight" VerticalContentAlignment="Top" IsEditable="False" Margin="5" SelectionChanged="cbFiltros_SelectionChanged" Height="30"/>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <Label Content="{materialDesign:PackIcon Kind=Search}" Margin="5"/>
-                            <TextBox Width="300" Margin="5" />
+                            <TextBox x:Name="tbSearchStuff" Width="300" Margin="5" SelectionChanged="tbSearchStuff_SelectionChanged" />
+                            <Button x:Name="btnHardReload" Content="{materialDesign:PackIcon Kind=Reload,Size=15}" VerticalAlignment="Center" Margin="5" Style="{StaticResource MaterialDesignIconForegroundButton}" Click="btnHardReload_Click"/>
                         </StackPanel>
 
                     </StackPanel>

@@ -36,6 +36,9 @@ namespace AgriMarketSoft
             tbPrecio.Content = p.Precio;
             tbProveedor.Content = p.NombreProveedor;
             ImagenProductoView.Source = p.Imagen;
+
+
+
             MapaProveedor.Address = $"https://www.google.cl/maps/@{p.LatitudP},{p.LongitudP},16.5z";
             TBoxsDecripcion.Text = p.Descripcion;
             tBoxContacto.Text = p.ContactoProveedor;

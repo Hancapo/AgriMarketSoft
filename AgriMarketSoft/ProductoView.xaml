@@ -45,7 +45,8 @@
                                 <TextBox VerticalContentAlignment="Center" IsReadOnly="True" Style="{StaticResource MaterialDesignComboBoxEditableTextBox}"  x:Name="TBoxsDecripcion" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
                             </Expander>
                             <Expander  Header="Ubicación del Proveedor" Foreground="{StaticResource MaterialDesignLightForeground}">
-                                <wpf:ChromiumWebBrowser Address="www.google.cl" x:Name="MapaProveedor" Width="600" Height="500" Margin="20"/>
+                                
+                                <wpf:ChromiumWebBrowser AllowDrop="False" Address="www.google.cl" x:Name="MapaProveedor" Width="600" Height="500" Margin="20"/>
                             </Expander>
                             <Expander Header="Contacto" Foreground="{StaticResource MaterialDesignLightForeground}">
                                 <TextBox x:Name="tBoxContacto" IsReadOnly="True"  Style="{StaticResource MaterialDesignComboBoxEditableTextBox}" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>

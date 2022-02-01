@@ -23,7 +23,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" x:Name="spBarra" VerticalAlignment="Center">
-            <Button x:Name="btnEliminar" Foreground="{StaticResource MaterialDesignLightForeground}" Content="{materialDesign:PackIcon Kind=Delete}" Style="{StaticResource MaterialDesignIconButton}" Click="btnEliminar_Click"/>
+            <Button x:Name="btnEliminar" Margin="10" Foreground="{StaticResource MaterialDesignLightForeground}" Content="{materialDesign:PackIcon Kind=Delete}" Style="{StaticResource MaterialDesignIconButton}" Click="btnEliminar_Click"/>
+            <Button x:Name="btnBack" Foreground="{StaticResource MaterialDesignLightForeground}" Content="{materialDesign:PackIcon Kind=ArrowLeft}" Style="{StaticResource MaterialDesignIconButton}" Margin="10" Click="btnBack_Click" />
         </StackPanel>
         <StackPanel Grid.Row="1">
             <ListView x:Name="lvProductosProveedor" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="500" ItemsSource="{Binding Path=Collection}"  HorizontalAlignment="Center" Loaded="lvProductosProveedor_Loaded">

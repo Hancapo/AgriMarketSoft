@@ -58,7 +58,6 @@ namespace AgriMarketSoft
 
         private void btnAgregarProducto_Click(object sender, RoutedEventArgs e)
         {
-            btnAgregarProducto.Visibility =Visibility.Hidden;
             NavigationService.Navigate(new AddProductNew(u.rutusuario));
         }
 
@@ -161,7 +160,8 @@ namespace AgriMarketSoft
 
         private void cbSelectCategory_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;
             CategoriaFiltro.Clear();
 
 
@@ -202,6 +202,8 @@ namespace AgriMarketSoft
 
         private void cbSelectCategory_Checked(object sender, RoutedEventArgs e)
         {
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;
             CategoriaFiltro.Clear();
 
 
@@ -243,6 +245,9 @@ namespace AgriMarketSoft
 
         private void cbSelectProviders_Checked(object sender, RoutedEventArgs e)
         {
+
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;
             ProveedorFiltro.Clear();
 
             //if (lvProveedores.Items.Cast<Proveedor>().Any(x => x.Seleccionado))
@@ -275,17 +280,10 @@ namespace AgriMarketSoft
 
         private void cbSelectProviders_Unchecked(object sender, RoutedEventArgs e)
         {
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;    
+
             ProveedorFiltro.Clear();
-
-            //if (lvProveedores.Items.Cast<Proveedor>().Any(x => x.Seleccionado))
-            //{
-
-
-            //}
-            //else
-            //{
-
-            //}
 
             foreach (var item in lvProveedores.Items)
             {
@@ -308,6 +306,32 @@ namespace AgriMarketSoft
 
         private void cbFiltros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            switch (cbFiltros.SelectedIndex)
+            {
+                case 0:
+                    try
+                    {
+                        lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.NombreProducto).ToList();
+
+                    }
+                    catch
+                    {
+
+                        
+                    }
+                    break;
+                case 1:
+                    lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.NombreProducto).Reverse().ToList();
+                    break;
+                case 2:
+                    lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.Precio).ToList();
+                    break;
+                case 3:
+                    lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().OrderBy(x => x.Precio).Reverse().ToList();
+                    break;
+                default:
+                    break;
+            }
 
         }
 
@@ -317,6 +341,70 @@ namespace AgriMarketSoft
             {
                 NavigationService.Navigate(new Perfil(u));
             }
+        }
+
+        private void btnHardReload_Click(object sender, RoutedEventArgs e)
+        {
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;
+            lBoxProductos.ItemsSource = onc.GetProductoList();
+        }
+
+        private void tbSearchStuff_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().Where(x => x.NombreProducto.Contains(tbSearchStuff.Text)).ToList();
+        }
+
+        private void cbSelectRegion_Checked(object sender, RoutedEventArgs e)
+        {
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;
+            RegionFiltro.Clear();
+
+            foreach (var item in lvRegiones.Items)
+            {
+                var RegionLista = ((Agri.Core.Region)item);
+
+                if (RegionLista.Seleccionado)
+                {
+                    if (!RegionFiltro.Exists(x => x == RegionLista.NombreRegion))
+                    {
+                        RegionFiltro.Add(RegionLista.NombreRegion);
+                    }
+                }
+
+
+            }
+
+            RegionFiltro = RegionFiltro.DistinctBy(x => x).ToList();
+
+            lBoxProductos.ItemsSource = ReturnListaProductoFiltrada(FiltrosCategoria(onc.GetProductoList(), CategoriaFiltro), FiltrosProveedor(onc.GetProductoList(), ProveedorFiltro), FiltrosRegiones(onc.GetProductoList(), RegionFiltro));
+        }
+
+        private void cbSelectRegion_Unchecked(object sender, RoutedEventArgs e)
+        {
+            tbSearchStuff.Text = String.Empty;
+            cbFiltros.SelectedIndex = 0;
+            RegionFiltro.Clear();
+
+            foreach (var item in lvRegiones.Items)
+            {
+                var RegionLista = ((Agri.Core.Region)item);
+
+                if (RegionLista.Seleccionado)
+                {
+                    if (!RegionFiltro.Exists(x => x == RegionLista.NombreRegion))
+                    {
+                        RegionFiltro.Add(RegionLista.NombreRegion);
+                    }
+                }
+
+
+            }
+
+            RegionFiltro = RegionFiltro.DistinctBy(x => x).ToList();
+
+            lBoxProductos.ItemsSource = ReturnListaProductoFiltrada(FiltrosCategoria(onc.GetProductoList(), CategoriaFiltro), FiltrosProveedor(onc.GetProductoList(), ProveedorFiltro), FiltrosRegiones(onc.GetProductoList(), RegionFiltro));
         }
     }
 }

@@ -21,8 +21,8 @@
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Label Margin="20" FontSize="30" Content="Nuevo Producto" HorizontalAlignment="Center" Height="40"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Margin="20" FontSize="30" Content="Nuevo Producto" FontWeight="Bold" HorizontalAlignment="Center" Height="40"/>
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" >
             <Border Width="700"  Height="500" BorderThickness="2" BorderBrush="Gray" CornerRadius="10"  >

@@ -1,18 +1,8 @@
 ﻿using Agri.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
 
 namespace AgriMarketSoft
 {
@@ -28,7 +18,7 @@ namespace AgriMarketSoft
         {
             InitializeComponent();
             user = usuario;
-            lvProductosProveedor.ItemsSource = odio.ListarProductosFromProveedor(usuario.Correo);
+            lvProductosProveedor.ItemsSource = odio.ListarProductosFromProveedor(user.Correo);
         }
 
         private void lvProductosProveedor_Loaded(object sender, RoutedEventArgs e)
@@ -45,30 +35,30 @@ namespace AgriMarketSoft
                 Producto pro = new();
                 pro.IdProducto = Convert.ToInt32(productoLista.IdProducto);
 
-                if (System.Windows.MessageBox.Show("¿Esta seguro que quiere eliminar el producto :" + productoLista.NombreProducto + "?", "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"¿Está seguro de querer eliminar el producto {productoLista.NombreProducto}?", "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     if (odio.EliminarProducto(pro))
                     {
-                        System.Windows.MessageBox.Show("Se ha eliminado el producto");
-                     
+                        MessageBox.Show($"Se ha eliminado el producto {productoLista.NombreProducto}", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                        lvProductosProveedor.ItemsSource = odio.ListarProductosFromProveedor(user.Correo);
+
+
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("No se ha elimnado nada");
+                        MessageBox.Show("No Se ha podido eliminar el producto.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
             else
             {
-                System.Windows.MessageBox.Show("Seleccione una fila para eliminar");
+                MessageBox.Show($"Selecciona una fila para eliminar.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
-
-        
-   
-
-
-
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
