@@ -106,5 +106,10 @@ namespace AgriMarketSoft
                 }
             }
         }
+
+        private void btnRegistro_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

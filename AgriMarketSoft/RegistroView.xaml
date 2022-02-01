@@ -25,6 +25,9 @@
             <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBoxOutline}"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
+            <Grid Height="Auto">
+                
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>

@@ -40,7 +40,7 @@
                     <PasswordBox  FontSize="15" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="pbPassword" Margin="15" PasswordChar="•" KeyDown="pbPassword_KeyDown"  Foreground="{StaticResource MaterialDesignLightForeground}" Cursor="Arrow"/>
                     <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" x:Name="BtnIngresar" Content="Iniciar sesión" Foreground="{StaticResource MaterialDesignLightForeground}" Style="{StaticResource MaterialDesignPaperLightButton}" Margin="25" FontFamily="{StaticResource MaterialDesignFont}" FontStyle="Normal" FontWeight="Normal" Click="BtnIngresar_Click" Cursor="Hand"/>
                     <Label  Content="¿No tienes cuenta?" HorizontalAlignment="Center"/>
-                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth3" FontFamily="{StaticResource MaterialDesignFont}" x:Name="btnRegistro" Margin="20" Content="Registrarse" Style="{StaticResource MaterialDesignPaperSecondaryLightButton}"/>
+                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth3" FontFamily="{StaticResource MaterialDesignFont}" x:Name="btnRegistro" Margin="20" Content="Registrarse" Style="{StaticResource MaterialDesignPaperSecondaryLightButton}" Click="btnRegistro_Click"/>
                 </StackPanel>
 
             </StackPanel>
