@@ -25,7 +25,7 @@ namespace AgriMarketSoft
         List<string> RegionFiltro = new();
         public TiendaView(Usuario userlog)
         {
-            userType = userlog.IdTipo;
+            userType = userlog.idTipo;
             u = userlog;
             InitializeComponent();
             cbFiltros.ItemsSource = new List<string>() { "Ordenar de la A a la Z", "Ordenar de la Z a la A", "De menor a mayor precio", "De mayor a menor precio" };

@@ -17,10 +17,12 @@ namespace Agri.Core
         public string Apellidos { get; set; }
         public string Contrasena { get; set; }
 
-
+        public int IdTipoUsuario { get; set; }  
 
         public string rutusuario => sa.RunSqlExecuteScalar($"SELECT rutusuario from usuario where correo = '{Correo}'").ToString();
         public string nombres => sa.RunSqlExecuteScalar($"SELECT nombres from usuario where correo = '{Correo}'").ToString();
-        public int IdTipo => Convert.ToInt32(sa.RunSqlExecuteScalar($"SELECT IdTipo FROM usuario where correo = '{Correo}'"));
+        public int idTipo => Convert.ToInt32(sa.RunSqlExecuteScalar($"SELECT IdTipo FROM usuario where correo = '{Correo}'"));
+
+
     }
 }

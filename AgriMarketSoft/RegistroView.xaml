@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AgriMarketSoft"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="720" d:DesignWidth="1280"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -22,11 +22,37 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel VerticalAlignment="Center">
-            <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBoxOutline}"/>
+            <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBoxOutline}" x:Name="btnVolverLogin" Click="btnVolverLogin_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Grid Height="Auto">
-                
+            <Grid Height="655">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" BorderBrush="Gray" CornerRadius="10" BorderThickness="1" Height="550">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Registro" HorizontalAlignment="Center" Foreground="{StaticResource MaterialDesignLightForeground}" Margin="15" FontSize="30"/>
+                        <TextBox x:Name="txtEmail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" Width="600" Margin="15"  materialDesign:TextFieldAssist.HasLeadingIcon="True" materialDesign:TextFieldAssist.LeadingIcon="Email" MaxLength="50"/>
+                        <TextBox x:Name="txtRut" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="RUT" Width="600" Margin="15"  materialDesign:TextFieldAssist.HasLeadingIcon="True" materialDesign:TextFieldAssist.LeadingIcon="CardAccountDetails" MaxLength="10" TextChanged="txtRut_TextChanged"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="640">
+                            <TextBox x:Name="txtNombres" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nombres" Width="270" Margin="20" materialDesign:TextFieldAssist.HasLeadingIcon="True" materialDesign:TextFieldAssist.LeadingIcon="Account" MaxLength="60"/>
+                            <TextBox x:Name="txtApellidos" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Apellidos" Width="290" Margin="20" materialDesign:TextFieldAssist.HasLeadingIcon="True" materialDesign:TextFieldAssist.LeadingIcon="Account" MaxLength="60"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="640">
+                            <ComboBox x:Name="cbTipoUsuario" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Tipo de Usuario" Width="270" Margin="20"/>
+                            <PasswordBox x:Name="txtPassword" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Contraseña" Width="290" Margin="20"/>
+                        </StackPanel>
+                        <CheckBox x:Name="checkBoxTerminos" Content="Acepto todos los términos y condiciones" Margin="20"  Foreground="{StaticResource MaterialDesignLightForeground}" HorizontalAlignment="Center"/>
+                        <Button x:Name="btnRegistrar" Margin="20" Width="180" Foreground="{StaticResource MaterialDesignLightForeground}" Height="50" Click="btnRegistrar_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="UserAdd" Margin="0,4,0,0"/>
+                                <Label Content="Registrarse"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Border>
             </Grid>
         </StackPanel>
     </Grid>
