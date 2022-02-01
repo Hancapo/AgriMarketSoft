@@ -1,6 +1,7 @@
 ﻿using Agri.Connect;
 using Agri.Core;
 using System.Data;
+using System.Data.SqlClient;
 using System.Reflection;
 
 namespace Agri.Business
@@ -201,6 +202,32 @@ namespace Agri.Business
                 }
             }
             return obj;
+        }
+
+
+        public bool CrearUsuario( Usuario usuario)
+        {
+            usuario.IdUsuario = CalculateID("IDUSUARIO", "USUARIO");
+            SqlCommand cmd = new("RegistrarUsuario", ctql.SqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdUX", SqlDbType.Int).Value = usuario.IdUsuario;
+            cmd.Parameters.AddWithValue("@Correo", SqlDbType.VarChar).Value = usuario.Correo;
+            cmd.Parameters.AddWithValue("@Rut", SqlDbType.VarChar).Value = usuario.RutUsuario;
+            cmd.Parameters.AddWithValue("@Nombres", SqlDbType.VarChar).Value = usuario.Nombres;
+            cmd.Parameters.AddWithValue("@Apellidos", SqlDbType.VarChar).Value = usuario.Apellidos;
+            cmd.Parameters.AddWithValue("@Tipo", SqlDbType.Int).Value = usuario.IdTipoUsuario;
+            cmd.Parameters.AddWithValue("@Contrasena", SqlDbType.VarChar).Value = usuario.Contrasena;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch 
+            {
+
+                return false;   
+            }
         }
 
     }
