@@ -159,7 +159,7 @@ namespace AgriMarketSoft
         {
             List<Producto> listaProducto = new();
 
-            string sqlCommand = $" select pro.idProducto as idProducto, pro.nombreProducto as nombreProducto, pro.stock as stock, cat.nombre as nombreCategoria, pro.descripcion as DescripcionProducto, pro.medida as MedidaProducto, pro.precio as precio from producto pro inner join categoria cat on pro.idcategoria = cat.idcategoria  where  = '{correo}'";
+            string sqlCommand = $"";
 
             foreach (DataRow dr in ctql.SqltoDataTable(sqlCommand).Rows)
             {
