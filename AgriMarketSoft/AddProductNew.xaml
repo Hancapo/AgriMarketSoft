@@ -1,0 +1,74 @@
+﻿<Page x:Class="AgriMarketSoft.AddProductNew"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgriMarketSoft"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      mc:Ignorable="d" 
+      d:DesignHeight="654.545454545454" d:DesignWidth="1280"
+      Title="AddProductNew">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Label Margin="20" FontSize="30" Content="Nuevo Producto" HorizontalAlignment="Center" Height="40"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" >
+            <Border Width="700"  Height="500" BorderThickness="2" BorderBrush="Gray" CornerRadius="10"  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBox x:Name="NombreProducto" Height="45" Margin="20" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.HasLeadingIcon="True" materialDesign:TextFieldAssist.LeadingIcon="RenameBox" MaxLength="50" />
+                        <TextBox x:Name="StockProducto" Height="45" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Stock" FontFamily="{StaticResource MaterialDesignFont}" Foreground="{StaticResource MaterialDesignLightForeground}" VerticalContentAlignment="Center" Margin="-2 0 0 0"/>
+                                    <Label Content="{materialDesign:PackIcon Kind=Numbers}"/>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <ComboBox x:Name="cbCategoria" Height="45" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20" materialDesign:HintAssist.Hint="Categoría"/>
+                        <TextBox x:Name="tbDecripcion" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="500" Height="150">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Descripción"/>
+                                    <Label Content="{materialDesign:PackIcon Kind=Text}"/>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <ComboBox x:Name="CbProveedor" Height="25" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20 40 20 0" materialDesign:HintAssist.Hint="Proveedor"/>
+                        <TextBox x:Name="Precio" Margin="20" materialDesign:HintAssist.Hint="Precio" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10" materialDesign:TextFieldAssist.PrefixText="$" />
+                        <StackPanel Margin="20" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10" x:Name="Medida" Width="200"/>
+                            <ComboBox x:Name="cbUnidadMedida" Width="110" Height="34">
+                                <ComboBoxItem Content="Gramo(s)"/>
+                                <ComboBoxItem Content="Kilo(s)"/>
+                                <ComboBoxItem Content="Litro(s)"/>
+                                <ComboBoxItem Content="CC(s)"/>
+                            </ComboBox>
+                        </StackPanel>
+                        <Image Width="250" Height="250" Margin="20" Source=""/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

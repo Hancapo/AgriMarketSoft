@@ -38,9 +38,9 @@
                 <StackPanel Width="300">
                     <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo"  Margin="15" Cursor="IBeam" KeyDown="tbCorreo_KeyDown" Foreground="{StaticResource MaterialDesignLightForeground}"/>
                     <PasswordBox  FontSize="15" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="pbPassword" Margin="15" PasswordChar="•" KeyDown="pbPassword_KeyDown"  Foreground="{StaticResource MaterialDesignLightForeground}" Cursor="Arrow"/>
-                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" x:Name="BtnIngresar" Content="Iniciar sesión" Foreground="{StaticResource MaterialDesignLightForeground}" Style="{StaticResource MaterialDesignPaperLightButton}" Margin="25" FontFamily="{StaticResource MaterialDesignFont}" FontStyle="Normal" FontWeight="Normal" Click="BtnIngresar_Click" Cursor="Hand"/>
+                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth2" x:Name="BtnIngresar" Content="Iniciar sesión" Foreground="{StaticResource MaterialDesignLightForeground}" Style="{StaticResource MaterialDesignPaperLightButton}" Margin="25" FontFamily="{StaticResource MaterialDesignFont}" FontStyle="Normal" FontWeight="Normal" Click="BtnIngresar_Click" Cursor="Hand"/>
                     <Label  Content="¿No tienes cuenta?" HorizontalAlignment="Center"/>
-                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth3" FontFamily="{StaticResource MaterialDesignFont}" x:Name="btnRegistro" Margin="20" Content="Registrarse" Style="{StaticResource MaterialDesignPaperSecondaryLightButton}" Click="btnRegistro_Click"/>
+                    <Button materialDesign:ShadowAssist.ShadowDepth="Depth2" FontFamily="{StaticResource MaterialDesignFont}" x:Name="btnRegistro" Margin="20" Content="Registrarse" Style="{StaticResource MaterialDesignPaperSecondaryLightButton}" Click="btnRegistro_Click"/>
                 </StackPanel>
 
             </StackPanel>
