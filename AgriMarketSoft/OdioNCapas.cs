@@ -159,7 +159,7 @@ namespace AgriMarketSoft
         {
             List<Producto> listaProducto = new();
 
-            string sqlCommand = $" select pro.idProducto as idProducto, pro.nombreProducto as nombreProducto, pro.stock as stock, cat.nombre as nombreCategoria, pro.descripcion as DescripcionProducto, pro.medida as MedidaProducto, pro.precio as precio from producto pro inner join categoria cat on pro.idcategoria = cat.idcategoria  where  = '{correo}'";
+            string sqlCommand = $"SELECT Producto.idproducto as idProducto, Producto.nombreproducto as nombreProducto, Producto.stock as stock, Categoria.nombre as nombreCategoria, Producto.descripcion as DescripcionProducto, Producto.medida as MedidaProducto,  Producto.precio as precio FROM Producto inner join Categoria on Producto.idcategoria = Categoria.idcategoria INNER JOIN Proveedor ON Producto.rutproveedor = Proveedor.rutproveedor  INNER JOIN Usuario ON Usuario.rutusuario = Proveedor.rutproveedor  where usuario.correo = '{correo}'";
 
             foreach (DataRow dr in ctql.SqltoDataTable(sqlCommand).Rows)
             {
@@ -169,7 +169,7 @@ namespace AgriMarketSoft
                     NombreProducto = dr["nombreProducto"].ToString(),
                     Stock = Convert.ToInt32(dr["stock"]),
                     NombreCategoria = dr["nombreCategoria"].ToString(),
-                    Descripcion = dr["Descripcion"].ToString(),
+                    Descripcion = dr["DescripcionProducto"].ToString(),
                     Medida = dr["MedidaProducto"].ToString(),
                     Precio = Convert.ToInt32(dr["precio"]),
 

@@ -28,7 +28,7 @@ namespace AgriMarketSoft
         {
             InitializeComponent();
             user = usuario;
-            lvProductosProveedor.ItemsSource = odio.ListarProductosFromProveedor(usuario.RutUsuario);
+            lvProductosProveedor.ItemsSource = odio.ListarProductosFromProveedor(usuario.Correo);
         }
 
         private void lvProductosProveedor_Loaded(object sender, RoutedEventArgs e)
