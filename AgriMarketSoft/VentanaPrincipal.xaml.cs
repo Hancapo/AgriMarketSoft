@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Agri.Connect;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
+using Path = System.IO.Path;
 
 namespace AgriMarketSoft
 {
@@ -21,6 +25,8 @@ namespace AgriMarketSoft
     /// </summary>
     public partial class VentanaPrincipal : Window
     {
+
+        ConnectSQL csql = new();
         public VentanaPrincipal()
         {
             InitializeComponent();
@@ -47,6 +53,17 @@ namespace AgriMarketSoft
         private void spTab_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left) DragMove();
+        }
+
+        private void MainAmigo_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (fMain.Content.GetType().Name != "PantallaLogin" )
+            {
+                string correopath = Path.Combine(Path.GetTempPath(), "3SbFHNhAg68dZFOIdPUz.tmp");
+                string correo = File.ReadAllLines(correopath)[0];
+                csql.RunSqlNonQuery($"UPDATE Usuario SET sesion = 0 WHERE correo = '{correo}'");
+                File.Delete(correopath);
+            }
         }
     }
 }

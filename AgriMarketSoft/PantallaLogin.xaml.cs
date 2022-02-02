@@ -1,20 +1,11 @@
 ﻿using Agri.Business;
 using Agri.Connect;
 using Agri.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 
@@ -106,6 +97,7 @@ namespace AgriMarketSoft
                                 Usuario u = new() { Correo = tbCorreo.Text };
                                 NavigationService.Navigate(new TiendaView(u));
                                 csql.RunSqlNonQuery($"UPDATE Usuario SET sesion = 1 WHERE correo = '{tbCorreo.Text}'");
+                                File.WriteAllText(Path.Combine(Path.GetTempPath(), "3SbFHNhAg68dZFOIdPUz.tmp"), tbCorreo.Text);
                                 break;
                             case 1:
                                 MessageBox.Show("La sesión ya se encuentra iniciada en otra parte.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
