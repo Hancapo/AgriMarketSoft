@@ -67,6 +67,8 @@ namespace AgriMarketSoft
             if (MessageBox.Show("¿Está seguro de querer cerrar sesión?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 NavigationService.GoBack();
+                ctql.RunSqlNonQuery($"UPDATE Usuario SET sesion = 0 WHERE correo = '{u.Correo}'");
+
             }
         }
 

@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agri.Connect", "Agri.Connec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agri.Business", "Agri.Business\Agri.Business.csproj", "{4DBAF61A-0411-4AD3-A9AC-DB533D16357D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgriMarketTests", "AgriMarketTests\AgriMarketTests.csproj", "{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agri.Core", "Agri.Core\Agri.Core.csproj", "{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agri.Core", "Agri.Core\Agri.Core.csproj", "{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{4DBAF61A-0411-4AD3-A9AC-DB533D16357D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DBAF61A-0411-4AD3-A9AC-DB533D16357D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DBAF61A-0411-4AD3-A9AC-DB533D16357D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{488CE0B2-68FE-4DBC-B47A-038E5BD0CB8D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CADB5A3F-EC35-4DF6-B976-D3C2ED36FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU

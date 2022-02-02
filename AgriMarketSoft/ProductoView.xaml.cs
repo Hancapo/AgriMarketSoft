@@ -39,7 +39,7 @@ namespace AgriMarketSoft
 
 
 
-            MapaProveedor.Address = $"https://www.google.cl/maps/@{p.LatitudP},{p.LongitudP},16.5z";
+            MapaProveedor.Address = $"https://www.google.cl/maps/place/{p.LatitudP},{p.LongitudP}";
             TBoxsDecripcion.Text = p.Descripcion;
             tBoxContacto.Text = p.ContactoProveedor;
         }

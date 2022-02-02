@@ -98,8 +98,23 @@ namespace AgriMarketSoft
                         MessageBox.Show("La contraseña es incorrecta.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     case 3:
-                        Usuario u = new() { Correo = tbCorreo.Text };
-                        NavigationService.Navigate(new TiendaView(u));
+                        int SesionI = Convert.ToInt32(csql.RunSqlExecuteScalar($"SELECT sesion FROM Usuario WHERE CORREO = '{tbCorreo.Text}'"));
+
+                        switch (SesionI)
+                        {
+                            case 0:
+                                Usuario u = new() { Correo = tbCorreo.Text };
+                                NavigationService.Navigate(new TiendaView(u));
+                                csql.RunSqlNonQuery($"UPDATE Usuario SET sesion = 1 WHERE correo = '{tbCorreo.Text}'");
+                                break;
+                            case 1:
+                                MessageBox.Show("La sesión ya se encuentra iniciada en otra parte.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                break;
+                            default:
+                                break;
+                        }
+
+                        
                         break;
                     default:
                         break;
