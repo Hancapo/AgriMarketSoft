@@ -95,7 +95,7 @@
                                 </ListView>
                             </StackPanel>
                         </Expander>
-                        <Expander Foreground="{StaticResource MaterialDesignLightForeground}">
+                        <Expander Visibility="Hidden" Foreground="{StaticResource MaterialDesignLightForeground}">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <Label Content="Región" FontSize="16" Foreground="{StaticResource MaterialDesignLightForeground}"/>

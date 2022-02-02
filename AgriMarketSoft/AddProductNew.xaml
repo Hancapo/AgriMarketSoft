@@ -35,32 +35,32 @@
                         <TextBox x:Name="NombreProducto" Height="45" Margin="20"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="50" Cursor="Arrow">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Nombre" Foreground="{StaticResource MaterialDesignLightForeground}"/>
-                                    <Label Content="{materialDesign:PackIcon Kind=Package}"/>
+                                    <Label Content="Nombre" Margin="-5 -2 0 0" Foreground="{StaticResource MaterialDesignLightForeground}"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Package}"/>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
                         <TextBox x:Name="StockProducto" Height="45" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10" TextChanged="StockProducto_TextChanged">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Stock" FontFamily="{StaticResource MaterialDesignFont}" Foreground="{StaticResource MaterialDesignLightForeground}" VerticalContentAlignment="Center" Margin="-2 0 0 0"/>
-                                    <Label Content="{materialDesign:PackIcon Kind=Numeric}"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="Stock" FontFamily="{StaticResource MaterialDesignFont}" Foreground="{StaticResource MaterialDesignLightForeground}" VerticalContentAlignment="Center"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Numeric}"/>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
                         <ComboBox x:Name="cbCategoria" Height="45" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Categoría"/>
-                                    <Label Content="{materialDesign:PackIcon Kind=Category}"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="Categoría"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Category}"/>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </ComboBox>
-                        <TextBox x:Name="tbDecripcion" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="500" Height="200">
+                        <TextBox x:Name="tbDecripcion" Margin="20" TextWrapping="Wrap" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="500" Height="200">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Descripción"/>
-                                    <Label Content="{materialDesign:PackIcon Kind=Text}"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="Descripción"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Text}"/>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
@@ -70,16 +70,16 @@
                         <ComboBox x:Name="CbProveedor" Height="45" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20 40 20 0">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Proveedor"/>
-                                    <Label Content="{materialDesign:PackIcon Kind=Store}"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="Proveedor"/>
+                                    <Label   Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Store}"/>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </ComboBox>
-                        <TextBox x:Name="Precio" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10" materialDesign:TextFieldAssist.PrefixText="$" TextChanged="Precio_TextChanged">
+                        <TextBox Language="es-CL" x:Name="Precio" Margin="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10" materialDesign:TextFieldAssist.PrefixText="$" TextChanged="Precio_TextChanged">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Precio"/>
-                                    <Label Content="{materialDesign:PackIcon Kind=Money}"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="Precio"/>
+                                    <Label  Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Money}"/>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
@@ -87,19 +87,20 @@
                             <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="10" x:Name="Medida" Width="200" TextChanged="Medida_TextChanged">
                                 <materialDesign:HintAssist.Hint>
                                     <StackPanel Orientation="Horizontal">
-                                        <Label Content="Cantidad"/>
-                                        <Label Content="{materialDesign:PackIcon Kind=Numbers}"/>
+                                        <Label  Margin="-5 -2 0 0"  Content="Cantidad"/>
+                                        <Label  Margin="-5 -2 0 0"  Content="{materialDesign:PackIcon Kind=Numbers}"/>
                                     </StackPanel>
                                 </materialDesign:HintAssist.Hint>
                             </TextBox>
-                            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" x:Name="cbUnidadMedida" Width="110" Height="44">
+                            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Ud. de medida" x:Name="cbUnidadMedida" Width="110" Height="44">
                                 <ComboBoxItem Content="Gramo(s)"/>
                                 <ComboBoxItem Content="Kilo(s)"/>
                                 <ComboBoxItem Content="Litro(s)"/>
                                 <ComboBoxItem Content="CC(s)"/>
+                                <ComboBoxItem Content="Unidad(s)"/>
                             </ComboBox>
                         </StackPanel>
-                        <Image x:Name="ImgUpload" Width="150" Height="150" Margin="20" Stretch="Uniform" Source="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Photos.png" MouseDown="ImgUpload_MouseDown"/>
+                        <Image materialDesign:HintAssist.Hint="Imagen" x:Name="ImgUpload" Width="150" Height="150" Margin="20" Stretch="Uniform" Source="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Photos.png" MouseDown="ImgUpload_MouseDown"/>
                         <StackPanel Orientation="Horizontal">
                             <Button x:Name="btnInsertProducto" Width="150" Margin="10" Click="btnInsertProducto_Click">
                                 <StackPanel Orientation="Horizontal">

@@ -157,21 +157,32 @@ namespace Agri.Business
                 ListaID.Add(Convert.ToInt32(dataRow[IdColumnName]));
             }
 
-            ListaID.Sort();
-
-            int IdResult = 0;
-
-            foreach (var item in ListaID)
+            if (ListaID.Count < 1)
             {
-                IdResult++;
+                return 1;
+            }
+            else
+            {
+                ListaID.Sort();
 
-                if (item != IdResult)
+                int IdSequence = 1;
+
+                foreach (var item in ListaID)
                 {
-                    return IdResult;
+                    if (IdSequence == item)
+                    {
+                        IdSequence++;
+                    }
+                    else
+                    {
+                        return IdSequence;
+                    }
                 }
+
+                return IdSequence;
             }
 
-            return ListaID.Max() + 1;
+            
 
         }
 

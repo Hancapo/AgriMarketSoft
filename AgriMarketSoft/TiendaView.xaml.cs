@@ -350,11 +350,14 @@ namespace AgriMarketSoft
             tbSearchStuff.Text = String.Empty;
             cbFiltros.SelectedIndex = 0;
             lBoxProductos.ItemsSource = onc.GetProductoList();
+
+            lvCategorias.ItemsSource = b.GetCategoriaList().Select(x => { x.Seleccionado = false; return x; });
+            lvProveedores.ItemsSource = b.GetProveedoresList().Select(x => { x.Seleccionado = false; return x; });
         }
 
         private void tbSearchStuff_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().Where(x => x.NombreProducto.Contains(tbSearchStuff.Text)).ToList();
+            lBoxProductos.ItemsSource = lBoxProductos.ItemsSource.Cast<Producto>().ToList().Where(x => x.NombreProducto.ToLowerInvariant().Contains(tbSearchStuff.Text.ToLowerInvariant())).ToList();
         }
 
         private void cbSelectRegion_Checked(object sender, RoutedEventArgs e)

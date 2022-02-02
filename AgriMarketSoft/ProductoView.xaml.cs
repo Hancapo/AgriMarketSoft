@@ -36,7 +36,8 @@ namespace AgriMarketSoft
             tbPrecio.Content = p.Precio;
             tbProveedor.Content = p.NombreProveedor;
             ImagenProductoView.Source = p.Imagen;
-
+            tbStock.Content = p.Stock;
+            tbMedida.Text = p.Medida;
 
 
             MapaProveedor.Address = $"https://www.google.cl/maps/place/{p.LatitudP},{p.LongitudP}";

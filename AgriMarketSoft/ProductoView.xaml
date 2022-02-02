@@ -38,18 +38,23 @@
                         <Label x:Name="tbNombre" Content="Nombre" FontSize="30"/>
                         <Label x:Name="tbProveedor" Content="Proveedor" FontSize="20"/>
                         <Label x:Name="tbPrecio" Language="es-CL" Content="Precio" ContentStringFormat="{}${0:N0}" FontSize="25"/>
+                        <Label x:Name="tbStock" Content="40" FontSize="15" ContentStringFormat="{}Stock {0}"/>
                     </StackPanel>
                     <ScrollViewer Grid.Row="1" Margin="20">
                         <StackPanel>
                             <Expander  Header="Descripción" Foreground="{StaticResource MaterialDesignLightForeground}">
-                                <TextBox VerticalContentAlignment="Center" IsReadOnly="True" Style="{StaticResource MaterialDesignComboBoxEditableTextBox}"  x:Name="TBoxsDecripcion" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
+                                <TextBox VerticalContentAlignment="Center" IsReadOnly="True" Style="{StaticResource MaterialDesignComboBoxEditableTextBox}"  x:Name="TBoxsDecripcion" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
+                            </Expander>
+                            <Expander Header="Cantidad/Medida" Foreground="{StaticResource MaterialDesignLightForeground}">
+                                <TextBox VerticalContentAlignment="Center" IsReadOnly="True" Style="{StaticResource MaterialDesignComboBoxEditableTextBox}"  x:Name="tbMedida" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
+
                             </Expander>
                             <Expander  Header="Ubicación del Proveedor" Foreground="{StaticResource MaterialDesignLightForeground}">
                                 
                                 <wpf:ChromiumWebBrowser AllowDrop="False" Address="www.google.cl" x:Name="MapaProveedor" Width="600" Height="500" Margin="20"/>
                             </Expander>
                             <Expander Header="Contacto" Foreground="{StaticResource MaterialDesignLightForeground}">
-                                <TextBox x:Name="tBoxContacto" IsReadOnly="True"  Style="{StaticResource MaterialDesignComboBoxEditableTextBox}" Text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
+                                <TextBox x:Name="tBoxContacto" IsReadOnly="True"  Style="{StaticResource MaterialDesignComboBoxEditableTextBox}" FontSize="20" Width="700" Height="Auto" TextWrapping="Wrap"/>
                             </Expander>
                         </StackPanel>
                     </ScrollViewer>

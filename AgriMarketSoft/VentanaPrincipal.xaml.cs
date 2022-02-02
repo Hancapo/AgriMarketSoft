@@ -62,7 +62,6 @@ namespace AgriMarketSoft
                 string correopath = Path.Combine(Path.GetTempPath(), "3SbFHNhAg68dZFOIdPUz.tmp");
                 string correo = File.ReadAllLines(correopath)[0];
                 csql.RunSqlNonQuery($"UPDATE Usuario SET sesion = 0 WHERE correo = '{correo}'");
-                File.Delete(correopath);
             }
         }
     }
